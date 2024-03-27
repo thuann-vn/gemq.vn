@@ -25,6 +25,7 @@ class CategoryResource extends Resource
     protected static ?string $navigationGroup = 'Shop';
 
     protected static ?string $navigationIcon = 'heroicon-o-tag';
+    protected static bool $shouldRegisterNavigation = false;
 
     protected static ?string $navigationParentItem = 'Products';
 

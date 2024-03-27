@@ -1,11 +1,9 @@
 import {Fragment} from 'react'
-import { Link } from '@inertiajs/react';
+import {Link} from '@inertiajs/react';
 import {classNames, imageStorageUrl} from "@/Utils/Helper";
 import {MenuItem} from "@/types";
 import {Menu, Transition} from "@headlessui/react";
-import {
-    ChevronUpIcon, ChevronDownIcon,
-} from '@heroicons/react/24/outline'
+import {ChevronDownIcon, ChevronUpIcon,} from '@heroicons/react/24/outline'
 
 export default function NavDropdown({ item, isActive = false }: { item: MenuItem, isActive: boolean }) {
     return (
@@ -15,7 +13,7 @@ export default function NavDropdown({ item, isActive = false }: { item: MenuItem
                     <div>
                         <Menu.Button
                             className={
-                                classNames("flex items-center text-sm font-medium text-gray-700 hover:text-main-500 hover:bg-main-100 px-8 py-4 rounded-full",
+                                classNames("flex items-center font-medium text-main-600 hover:text-white hover:bg-main-600 px-8 py-4 rounded-full",
                                     item.data.classes ?? '',
                                     isActive ? 'bg-main-100 text-main-500' : ''
                                 )

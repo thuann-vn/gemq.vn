@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Page;
+use App\Settings\GeneralSettings;
+use Artesaos\SEOTools\Facades\SEOMeta;
+use Artesaos\SEOTools\Facades\SEOTools;
 use Illuminate\Http\Response;
 use Inertia\Inertia;
 use Statikbe\FilamentFlexibleContentBlocks\ContentBlocks\AbstractContentBlock;
@@ -20,6 +23,15 @@ class PageController extends Controller
         if (! $page->isPublished()) {
             return abort(Response::HTTP_NOT_FOUND);
         }
+
+        //Seo information
+        $generalSettings = new GeneralSettings();
+        SEOMeta::setTitleDefault($generalSettings->site_name);
+        SEOTools::setTitle($page->getSEOTitle() ?? $generalSettings->site_name);
+        SEOTools::setDescription($page->getSEODescription());
+        SEOMeta::setTitle($page->getSEOTitle() ?? $generalSettings->site_name);
+        SEOMeta::setKeywords($page->seo_keywords);
+        SEOTools::addImages($page->getSEOImageUrl());
 
         $blocks = $this->createBlocks($page);
         $pageTitle = $page->title;

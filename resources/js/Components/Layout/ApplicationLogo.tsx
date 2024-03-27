@@ -1,4 +1,3 @@
-import { SVGAttributes } from 'react';
 import {Link, usePage} from "@inertiajs/react";
 import {PageProps} from "@/types";
 
@@ -8,9 +7,9 @@ export default function ApplicationLogo() {
         <Link href={route('home')}>
             <span className="sr-only">{general_settings.site_name}</span>
             <img
-                className="h-6 w-auto"
+                className="h-20 w-auto"
                 src={general_settings.site_logo}
-                alt=""
+                alt={general_settings.site_name}
             />
         </Link>
     );

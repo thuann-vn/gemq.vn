@@ -28,7 +28,6 @@ use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Phpsa\FilamentAuthentication\FilamentAuthentication;
-use Phpsa\FilamentAuthentication\Widgets\LatestUsersWidget;
 use RyanChandler\FilamentNavigation\Filament\Resources\NavigationResource;
 use RyanChandler\FilamentNavigation\FilamentNavigation;
 use Tapp\FilamentAuthenticationLog\FilamentAuthenticationLogPlugin;
@@ -47,11 +46,9 @@ class AdminPanelProvider extends PanelProvider
             ->pages([
                 Dashboard::class,
             ])
-            ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
+//            ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
                 Widgets\AccountWidget::class,
-                //                Widgets\FilamentInfoWidget::class,
-                //                LatestUsersWidget::make(['limit' => 5, 'paginate' => true])
             ])
             ->navigationGroups([
                 'Shop',

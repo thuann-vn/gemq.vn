@@ -7,7 +7,6 @@ use App\Filament\Resources\Shop\BrandResource\RelationManagers;
 use App\Models\Shop\Brand;
 use Filament\Forms;
 use Filament\Forms\Form;
-use Filament\Notifications\Notification;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -25,6 +24,7 @@ class BrandResource extends Resource
     protected static ?string $navigationGroup = 'Shop';
 
     protected static ?string $navigationIcon = 'heroicon-o-bookmark-square';
+    protected static bool $shouldRegisterNavigation = false;
     protected static ?string $navigationParentItem = 'Products';
 
     protected static ?int $navigationSort = 4;

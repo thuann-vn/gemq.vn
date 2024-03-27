@@ -4,11 +4,9 @@ namespace App\Filament\Resources\Shop;
 
 use App\Filament\Resources\Shop\CollectionResource\RelationManagers\ProductsRelationManager;
 use App\Filament\Resources\Website\SliderResource;
-use App\Models\Shop\Category;
 use App\Models\Shop\Collection;
-use App\Models\Slider;
-use Filament\Forms\Form;
 use Filament\Forms;
+use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -24,6 +22,7 @@ class CollectionResource extends Resource
     protected static ?string $navigationGroup = 'Shop';
 
     protected static ?string $model = \App\Models\Shop\Collection::class;
+    protected static bool $shouldRegisterNavigation = false;
 
     protected static ?string $navigationIcon = 'heroicon-o-queue-list';
 

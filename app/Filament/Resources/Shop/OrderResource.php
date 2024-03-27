@@ -7,14 +7,12 @@ use App\Filament\Resources\Shop\OrderResource\Pages;
 use App\Filament\Resources\Shop\OrderResource\RelationManagers;
 use App\Filament\Resources\Shop\OrderResource\Widgets\OrderStats;
 use App\Forms\Components\AddressForm;
-use App\Models\Blog\Category;
 use App\Models\Shop\Order;
 use App\Models\Shop\Product;
 use Filament\Forms;
 use Filament\Forms\Components\Actions\Action;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Form;
-use Filament\Notifications\Notification;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -36,6 +34,7 @@ class OrderResource extends Resource
     protected static ?string $navigationGroup = 'Shop';
 
     protected static ?string $navigationIcon = 'heroicon-o-shopping-bag';
+    protected static bool $shouldRegisterNavigation = false;
 
     protected static ?int $navigationSort = 2;
 

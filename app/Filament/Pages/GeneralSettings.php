@@ -15,12 +15,15 @@ class GeneralSettings extends SettingsPage
     protected static string $settings = GeneralSettingsModel::class;
 
     protected static ?string $navigationGroup = 'Settings';
+
     protected static ?string $navigationLabel = 'General Settings';
 
     protected static ?string $title = 'General Settings';
+
     protected ?string $subheading = 'Manage your general settings';
 
     protected static ?int $navigationSort = 1;
+
     public function form(Form $form): Form
     {
         return $form
@@ -86,33 +89,12 @@ class GeneralSettings extends SettingsPage
                                 ->label('Site google')
                                 ->prefixIcon('heroicon-o-link'),
                         ]),
-                    Forms\Components\Tabs\Tab::make('Footer')
-                        ->schema([
-                            Forms\Components\Repeater::make('site_footer')
-                            ->schema([
-                                Forms\Components\FileUpload::make('image')
-                                    ->label('Image')
-                                    ->previewable()
-                                    ->avatar()
-                                    ->image()
-                                    ->imageEditor()
-                                    ->imageEditorAspectRatios([
-                                        null,
-                                        '1:1',
-                                    ])
-                                    ->preserveFilenames()
-                                    ->required(),
-                                Forms\Components\TextInput::make('text')
-                                    ->label('Text')
-                            ])
-                            ->grid(4)
-                        ]),
                     Forms\Components\Tabs\Tab::make('Custom JS/CSS')
                         ->schema([
                             CodeEditor::make('custom_css'),
                             CodeEditor::make('custom_js'),
                         ]),
-                ])
+                ]),
             ])->columns(1);
     }
 }

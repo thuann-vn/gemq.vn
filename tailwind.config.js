@@ -1,6 +1,7 @@
 import defaultTheme from 'tailwindcss/defaultTheme';
 import forms from '@tailwindcss/forms';
 import aspectRatio from '@tailwindcss/aspect-ratio';
+import animated from 'tailwindcss-animated';
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -21,17 +22,17 @@ export default {
             },
             colors: {
                 'main': {
-                    '50': '#eef5ff',
-                    '100': '#dae8ff',
-                    '200': '#bdd8ff',
-                    '300': '#90c0ff',
-                    '400': '#5b9dff',
-                    '500': '#3578fc',
-                    '600': '#1e58f2',
-                    '700': '#1640d6',
-                    '800': '#1936b4',
-                    '900': '#1a338e',
-                    '950': '#152156',
+                    '50': '#ffffe7',
+                    '100': '#feffc1',
+                    '200': '#fffd86',
+                    '300': '#fff441',
+                    '400': '#ffe60d',
+                    '500': '#ffd700',
+                    '600': '#d19e00',
+                    '700': '#a67102',
+                    '800': '#89580a',
+                    '900': '#74480f',
+                    '950': '#442604',
                 },
                 'secondary': {
                     '50': '#fefce8',
@@ -45,10 +46,10 @@ export default {
                     '800': '#874d0c',
                     '900': '#733f10',
                     '950': '#432005',
-                },
+                }
             }
         },
     },
 
-    plugins: [forms, aspectRatio],
+    plugins: [forms, aspectRatio, animated],
 };

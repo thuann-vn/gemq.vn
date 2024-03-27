@@ -18,6 +18,8 @@ class AttributeResource extends Resource
 
     protected static ?string $navigationGroup = 'Shop';
 
+    protected static bool $shouldRegisterNavigation = false;
+
     protected static ?string $navigationParentItem = 'Products';
     protected static ?int $navigationSort   = 6;
 

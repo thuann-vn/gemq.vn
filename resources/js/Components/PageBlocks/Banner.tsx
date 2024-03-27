@@ -18,8 +18,8 @@ export default function Banner({slide}: {slide: SliderItems}){
                                 <p className="text-lg mt-3  mb-3 slide-subtitle"
                                    dangerouslySetInnerHTML={{__html: slide.subtitle}}></p>
                                 <Link href={slide.link}
-                                      className={"slide-button shadow rounded-full px-3 bg-white text-black py-2 inline-block"}>
-                                    Shop now
+                                      className={"slide-button shadow rounded-full px-3 bg-white text-black py-2 inline-block mt-3"}>
+                                    Xem thêm
                                 </Link>
                             </div>
                         </div>

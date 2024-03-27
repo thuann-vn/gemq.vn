@@ -4,11 +4,9 @@ namespace App\Filament\Pages;
 
 use Akaunting\Money\Currency;
 use App\Settings\ShopSettings;
+use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Pages\SettingsPage;
-use Illuminate\Support\Facades\Log;
-use Wiebenieuwenhuis\FilamentCodeEditor\Components\CodeEditor;
-use Filament\Forms;
 
 class ManageShop extends SettingsPage
 {
@@ -17,6 +15,7 @@ class ManageShop extends SettingsPage
   protected static string $settings = ShopSettings::class;
   protected static ?string $navigationGroup = 'Settings';
   protected static ?int $navigationSort = 1;
+    protected static bool $shouldRegisterNavigation = false;
 
   public function form(Form $form): Form
   {
