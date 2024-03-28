@@ -2,14 +2,7 @@
 
 // config for Statikbe/FilamentFlexibleContentBlocks
 use Spatie\Image\Manipulations;
-use Statikbe\FilamentFlexibleContentBlocks\ContentBlocks\CallToActionBlock;
-use Statikbe\FilamentFlexibleContentBlocks\ContentBlocks\CardsBlock;
 use Statikbe\FilamentFlexibleContentBlocks\ContentBlocks\HtmlBlock;
-use Statikbe\FilamentFlexibleContentBlocks\ContentBlocks\ImageBlock;
-use Statikbe\FilamentFlexibleContentBlocks\ContentBlocks\TemplateBlock;
-use Statikbe\FilamentFlexibleContentBlocks\ContentBlocks\TextBlock;
-use Statikbe\FilamentFlexibleContentBlocks\ContentBlocks\TextImageBlock;
-use Statikbe\FilamentFlexibleContentBlocks\ContentBlocks\VideoBlock;
 
 return [
     /*
@@ -41,6 +34,8 @@ return [
         \App\Filament\ContentBlocks\CategoriesBlock::class,
         \App\Filament\ContentBlocks\SliderBlock::class,
         \App\Filament\ContentBlocks\ProductCollectionBlock::class,
+        \App\Filament\ContentBlocks\BrandLogoSliderBlock::class,
+        \App\Filament\ContentBlocks\TestimonialsBlock::class,
         \App\Filament\ContentBlocks\CardsBlock::class,
         \App\Filament\ContentBlocks\ContactFormBlock::class
     ],

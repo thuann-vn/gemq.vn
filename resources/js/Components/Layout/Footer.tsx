@@ -49,7 +49,7 @@ export default () => {
     }
     return (
         <>
-            <footer className="bg-[#fff] pt-14 border-t border-t-gray-200" aria-labelledby="footer-heading">
+            <footer className="bg-[#151D2D] pt-14 border-t border-t-gray-200" aria-labelledby="footer-heading">
                 <h2 id="footer-heading" className="sr-only">
                     Footer
                 </h2>
@@ -59,19 +59,19 @@ export default () => {
                             <a href="/" className="flex items-center">
                                 <img className="h-20 w-auto" src={general_settings.site_logo} alt=""/>
                             </a>
-                            <p className="mt-8 text-base text-gray-400">
+                            <p className="mt-8 text-base text-white">
                                 {general_settings.site_description}
                             </p>
 
-                            <h3 className="text-lg font-semibold tracking-wider uppercase mt-6 mb-3">{t('CÔNG TY GEMQ')}</h3>
+                            <h3 className="text-lg text-white font-semibold tracking-wider uppercase mt-6 mb-3">{t('CÔNG TY GEMQ')}</h3>
                             <div className={"leading-5"}>
-                                <p className="text-base text-gray-500">
+                                <p className="text-base text-white">
                                     {t('Đại diện: Huỳnh Viết Phương')}
                                 </p>
-                                <p className="text-base text-gray-500">
+                                <p className="text-base text-white">
                                     {t('MST: 0317768457')}
                                 </p>
-                                <p className="text-base text-gray-500">
+                                <p className="text-base text-white">
                                     {t('Quản lý bởi: Chi cục Thuế thành phố Thủ Đức cấp ngày 4/4/2023')}
                                 </p>
                             </div>
@@ -82,7 +82,10 @@ export default () => {
                                     const column = footer_links.items[key];
                                     return (
                                         <div key={index}>
-                                            <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">{column.label}</h3>
+                                            <h3 className="text-xl font-semibold text-white tracking-wider uppercase">
+                                                {column.label}
+                                            </h3>
+                                            <div className={"w-[100px] h-[1px] bg-main-600 my-5"}></div>
                                             <ul role="list" className="mt-4 space-y-4">
                                                 {
                                                     Object.keys(column.children).map((childKey: string, childIdx: number) => {
@@ -90,7 +93,7 @@ export default () => {
                                                         return (
                                                             <li key={childIdx}>
                                                                 <a href={child.data.url}
-                                                                   className="text-base text-gray-500 hover:text-gray-900">
+                                                                   className="text-base text-white hover:text-main-600">
                                                                     {child.label}
                                                                 </a>
                                                             </li>
@@ -101,11 +104,11 @@ export default () => {
                                             {
                                                 index == 2 ? (
                                                     <div className={"mt-6"}>
-                                                        <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">{t('Theo dõi chúng tôi tại')}</h3>
+                                                        <h3 className="text-lg text-white font-semibold tracking-wider uppercase mt-6 mb-3">{t('Theo dõi chúng tôi tại')}</h3>
                                                         <div className="flex space-x-6 md:order-2 mt-3">
                                                             {navigation.social.map((item) => (
                                                                 <a key={item.name} href={item.href} target="_blank"
-                                                                   className="text-gray-400 hover:text-gray-500">
+                                                                   className="text-white hover:text-white">
                                                                     <span className="sr-only">{item.name}</span>
                                                                     <item.icon className="h-6 w-6" aria-hidden="true"/>
                                                                 </a>
@@ -113,17 +116,17 @@ export default () => {
                                                         </div>
 
 
-                                                        <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase mt-6 mb-3">{t('Liên hệ')}</h3>
+                                                        <h3 className="text-lg text-white font-semibold tracking-wider uppercase mt-6 mb-3">{t('Liên hệ')}</h3>
                                                         <div className={"leading-5"}>
-                                                            <p className="text-base text-gray-500">
+                                                            <p className="text-base text-white">
                                                                 {t('Hotline')}: <a className={"text-main-600"}
                                                                                    href={`tel:${general_settings.site_phone}`}>{general_settings.site_phone}</a>
                                                             </p>
-                                                            <p className="text-base text-gray-500">
+                                                            <p className="text-base text-white">
                                                                 {t('Mail')}: <a className={"text-main-600"}
                                                                                 href={`mailto:${general_settings.site_email}`}>{general_settings.site_email}</a>
                                                             </p>
-                                                            <p className="text-base text-gray-500">
+                                                            <p className="text-base text-white">
                                                                 {t('Địa chỉ')}: {general_settings.site_address}
                                                             </p>
                                                         </div>
@@ -137,7 +140,7 @@ export default () => {
                         </div>
                     </div>
                     <div className="mt-8 border-t border-gray-200 pt-8 pb-8 md:flex md:items-center md:justify-between">
-                        <p className="mt-8 text-base text-gray-400 md:mt-0 md:order-1">
+                        <p className="mt-8 text-base text-sm text-white md:mt-0 md:order-1">
                             {general_settings.site_copyright}
                         </p>
                     </div>

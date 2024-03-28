@@ -110,7 +110,20 @@ class ProductResource extends Resource
                                     ->label('Availability')
                                     ->default(now())
                                     ->required(),
-                            ])
+                            ]),
+
+                        Forms\Components\Section::make('Associations')
+                            ->schema([
+                                Forms\Components\Select::make('collections')
+                                    ->relationship('collections', 'name')
+                                    ->preload()
+                                    ->searchable()
+                                    ->multiple()
+                                    ->createOptionForm([
+                                        Forms\Components\TextInput::make('name')
+                                            ->required(),
+                                    ]),
+                            ]),
                     ])
                     ->columnSpan(['lg' => 1]),
             ])
@@ -132,7 +145,7 @@ class ProductResource extends Resource
                 Tables\Columns\IconColumn::make('is_visible')
                     ->label('Visibility')
                     ->sortable()
-                    ->toggleable()
+                    ->toggleable(),
             ])
             ->filters([
                 QueryBuilder::make()

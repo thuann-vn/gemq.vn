@@ -2,22 +2,20 @@
 
 namespace App\Filament\ContentBlocks;
 
-use AmidEsfahani\FilamentTinyEditor\TinyEditor;
 use App\Filament\ContentBlocks\Concerns\HasBlockOption;
-use App\Filament\Form\Fields\Blocks\BlockOptionField;
+use App\Models\Testimonial;
 use Filament\Forms\Components\TextInput;
 use Spatie\MediaLibrary\HasMedia;
 use Statikbe\FilamentFlexibleContentBlocks\ContentBlocks\AbstractContentBlock;
 use Statikbe\FilamentFlexibleContentBlocks\Models\Contracts\HasContentBlocks;
 
-class TextBlock extends AbstractContentBlock
+class TestimonialsBlock extends AbstractContentBlock
 {
     use HasBlockOption;
 
-    public ?string $content;
-
     public ?string $title;
 
+    public ?array $items;
 
     /**
      * Create a new component instance.
@@ -25,33 +23,32 @@ class TextBlock extends AbstractContentBlock
     public function __construct(HasContentBlocks & HasMedia $record, ?array $blockData)
     {
         parent::__construct($record, $blockData);
-        $this->content = $blockData['content'] ?? null;
+
         $this->title = $blockData['title'] ?? null;
+        $this->items = Testimonial::query()->where('visible', true)->get()->toArray();
         $this->setBlockOption($blockData);
     }
 
     public static function getNameSuffix(): string
     {
-        return 'text';
+        return '';
     }
 
     public static function getIcon(): string
     {
-        return 'heroicon-o-bars-3-bottom-left';
+        return 'heroicon-o-rectangle-group';
     }
 
     /**
      * {@inheritDoc}
      */
-    protected static function makeFilamentSchema(): array | \Closure
+    protected static function makeFilamentSchema(): array|\Closure
     {
         return [
             TextInput::make('title')
-                ->label('Title'),
-            TinyEditor::make('content')
-                ->label('Content')
-                ->required(),
-            BlockOptionField::create(static::class),
+                ->label('Title')
+                ->maxLength(255),
+            \App\Filament\Form\Fields\Blocks\BlockOptionField::create(static::class),
         ];
     }
 
@@ -64,17 +61,17 @@ class TextBlock extends AbstractContentBlock
 
     public static function getName(): string
     {
-        return 'Text';
+        return 'Testimonials';
     }
 
     public static function getLabel(): string
     {
-        return 'Text';
+        return 'Testimonials';
     }
 
     public static function getFieldLabel(string $field): string
     {
-        return 'Text';
+        return 'Testimonials';
     }
 
     public function render()

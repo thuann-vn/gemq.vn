@@ -166,6 +166,7 @@ export interface Product{
     brand: Brand,
     has_variants: boolean;
     qty: number;
+    featured: boolean;
 }
 
 export interface ProductVariant{
@@ -190,6 +191,14 @@ export interface Brand{
     updated_at: string;
 }
 
+export interface Testimonial {
+    id: number;
+    name: string;
+    content: string;
+    image: string;
+    position: string;
+}
+
 export interface ProductSpecification{
     name: string;
     value: string;
@@ -200,6 +209,16 @@ export interface ProductCollection{
 }
 
 export interface ProductCategory{
+    id: number;
+    name: string;
+    slug: string;
+    description: string;
+    image: string;
+    created_at: string;
+    updated_at: string;
+}
+
+export interface Brand {
     id: number;
     name: string;
     slug: string;

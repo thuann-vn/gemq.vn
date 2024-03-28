@@ -1,6 +1,5 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
-import {Autoplay, Navigation} from 'swiper/modules';
-import {imageStorageUrl} from "@/Utils/Helper";
+import {Swiper, SwiperSlide} from 'swiper/react';
+import {Navigation} from 'swiper/modules';
 import * as React from "react";
 import ProductCard from "@/Components/Products/ProductCard";
 import {Product} from "@/types";
@@ -29,10 +28,11 @@ export default function ProductSlider({products, title, className = ''}: Product
                     nextEl: '.swiper-button-next_' + randomId,
                     prevEl: '.swiper-button-prev_' + randomId,
                 }}
-                slidesPerView={4}
+                slidesPerView={3}
+                spaceBetween={"15px"}
                 effect={"creative"}
                 grabCursor={true}
-                className={"pt-5  bg-white"}
+                className={"pt-5"}
                 slideActiveClass={'slide-active'}
                 breakpoints={{
                     // when window width is >= 640px
@@ -44,10 +44,10 @@ export default function ProductSlider({products, title, className = ''}: Product
                         slidesPerView: 2,
                     },
                     1024: {
-                        slidesPerView: 4,
+                        slidesPerView: 3,
                     },
                     1536: {
-                        slidesPerView: 8,
+                        slidesPerView: 3,
                     },
                 }}
             >

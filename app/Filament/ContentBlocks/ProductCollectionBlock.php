@@ -2,6 +2,7 @@
 
 namespace App\Filament\ContentBlocks;
 
+use App\Filament\ContentBlocks\Concerns\HasBlockOption;
 use Filament\Forms\Components\Select;
 use Spatie\MediaLibrary\HasMedia;
 use Statikbe\FilamentFlexibleContentBlocks\ContentBlocks\AbstractContentBlock;
@@ -11,6 +12,7 @@ use Statikbe\FilamentFlexibleContentBlocks\Models\Contracts\HasContentBlocks;
 
 class ProductCollectionBlock extends AbstractContentBlock
 {
+    use HasBlockOption;
     use HasBackgroundColour;
     use HasBlockStyle;
 
@@ -24,6 +26,7 @@ class ProductCollectionBlock extends AbstractContentBlock
     public function __construct(HasContentBlocks & HasMedia $record, ?array $blockData)
     {
         parent::__construct($record, $blockData);
+        $this->setBlockOption($blockData);
         $this->collectionId = $blockData['collection_id'] ?? null;
         $this->collection = \App\Models\Shop\Collection::where('id', $this->collectionId)->first();
         $this->setBlockStyle($blockData);
@@ -49,6 +52,8 @@ class ProductCollectionBlock extends AbstractContentBlock
                 ->label(static::getFieldLabel('collection_id'))
                 ->options(\App\Models\Shop\Collection::whereIsVisible(true)->pluck('name', 'id')->toArray())
                 ->required(),
+            \App\Filament\Form\Fields\Blocks\BlockOptionField::create(static::class),
+
         ];
     }
 

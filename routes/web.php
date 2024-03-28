@@ -39,13 +39,13 @@ Route::middleware('auth')->prefix('account')->group(function () {
     Route::delete('/remove-wishlist', [ProfileController::class, 'removeWishlist'])->name('profile.remove-wishlist');
 });
 
-Route::group(['prefix' => ''], function () {
+Route::group([], function () {
     Route::get('/product/available-variants', [ProductController::class, 'getAvailableProductVariants'])->name('products.available-variants');
     Route::get('/search', [ProductController::class, 'search'])->name('products.search');
 
     Route::get('/', [ProductController::class, 'index'])->name('shop.index');
     Route::get('/{slug}', [ProductController::class, 'index'])->name('shop.category');
-    Route::get('/du-an/{slug}', [ProductController::class, 'detail'])->name('products.detail');
+    Route::get('/du-an/{slug}', [ProductController::class, 'detail'])->name('shop.detail');
 });
 
 Route::group(['prefix' => 'cart'], function () {

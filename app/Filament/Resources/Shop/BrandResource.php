@@ -3,7 +3,6 @@
 namespace App\Filament\Resources\Shop;
 
 use App\Filament\Resources\Shop\BrandResource\Pages;
-use App\Filament\Resources\Shop\BrandResource\RelationManagers;
 use App\Models\Shop\Brand;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -24,8 +23,6 @@ class BrandResource extends Resource
     protected static ?string $navigationGroup = 'Shop';
 
     protected static ?string $navigationIcon = 'heroicon-o-bookmark-square';
-    protected static bool $shouldRegisterNavigation = false;
-    protected static ?string $navigationParentItem = 'Products';
 
     protected static ?int $navigationSort = 4;
 
@@ -37,6 +34,7 @@ class BrandResource extends Resource
                     ->schema([
                         Forms\Components\Grid::make()
                             ->schema([
+                                Forms\Components\FileUpload::make('image')->columnSpanFull(),
                                 Forms\Components\TextInput::make('name')
                                     ->required()
                                     ->maxLength(255)
@@ -50,9 +48,6 @@ class BrandResource extends Resource
                                     ->maxLength(255)
                                     ->unique(Brand::class, 'slug', ignoreRecord: true),
                             ]),
-                        Forms\Components\TextInput::make('website')
-                            ->maxLength(255)
-                            ->url(),
 
                         Forms\Components\Toggle::make('is_visible')
                             ->label('Visible to customers.')
@@ -110,14 +105,6 @@ class BrandResource extends Resource
             ])
             ->defaultSort('sort')
             ->reorderable('sort');
-    }
-
-    public static function getRelations(): array
-    {
-        return [
-            RelationManagers\ProductsRelationManager::class,
-            RelationManagers\AddressesRelationManager::class,
-        ];
     }
 
     public static function getPages(): array

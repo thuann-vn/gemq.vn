@@ -1,11 +1,13 @@
 import {
     Block,
+    BrandLogoSliderBlock,
     CardsBlock,
     CategoriesBlock,
     CollectionBlock,
     ContactFormBlock,
     GridBlock,
     SliderBlock,
+    TestimonialsBlock,
     TextBlock
 } from "@/types/blocks";
 import BannerSlider from "@/Components/PageBlocks/BannerSlider";
@@ -16,6 +18,8 @@ import {classNames} from "@/Utils/Helper";
 import Cards from "@/Components/PageBlocks/Cards";
 import Text from "@/Components/PageBlocks/Text";
 import ContactForm from "@/Components/PageBlocks/ContactForm";
+import BrandSlider from "@/Components/PageBlocks/BrandSlider";
+import Testimonials from "@/Components/PageBlocks/Testimonials";
 
 export default function PageBlock({ block }: { block: Block }) {
     const renderBlock = (block: Block) => {
@@ -47,6 +51,14 @@ export default function PageBlock({ block }: { block: Block }) {
             case 'Contact Form':
                 return (
                     <ContactForm block={block as ContactFormBlock}/>
+                )
+            case 'Brand Logo Slider':
+                return (
+                    <BrandSlider block={block as BrandLogoSliderBlock}/>
+                )
+            case 'Testimonials':
+                return (
+                    <Testimonials block={block as TestimonialsBlock}/>
                 )
         }
     }

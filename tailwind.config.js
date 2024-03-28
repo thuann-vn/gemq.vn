@@ -22,7 +22,7 @@ export default {
             },
             colors: {
                 'main': {
-                    '50': '#ffffe7',
+                    '50': '#FCF5EF',
                     '100': '#feffc1',
                     '200': '#fffd86',
                     '300': '#fff441',
