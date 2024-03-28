@@ -1,14 +1,13 @@
 <?php
 
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\NewsLetterController;
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\HomeController;
-use \App\Http\Controllers\CartController;
-use \App\Http\Controllers\ProductController;
-use \App\Http\Controllers\CheckoutController;
-use \App\Http\Controllers\BlogController;
-use \App\Http\Controllers\PageController;
-use \App\Http\Controllers\ContactController;
-use \App\Http\Controllers\NewsLetterController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -40,14 +39,13 @@ Route::middleware('auth')->prefix('account')->group(function () {
     Route::delete('/remove-wishlist', [ProfileController::class, 'removeWishlist'])->name('profile.remove-wishlist');
 });
 
-Route::group(['prefix' => 'shop'], function () {
+Route::group(['prefix' => ''], function () {
     Route::get('/product/available-variants', [ProductController::class, 'getAvailableProductVariants'])->name('products.available-variants');
     Route::get('/search', [ProductController::class, 'search'])->name('products.search');
 
     Route::get('/', [ProductController::class, 'index'])->name('shop.index');
     Route::get('/{slug}', [ProductController::class, 'index'])->name('shop.category');
-    Route::get('/collection/{slug}', [ProductController::class, 'index'])->name('shop.collection');
-    Route::get('/product/{slug}', [ProductController::class, 'detail'])->name('products.detail');
+    Route::get('/du-an/{slug}', [ProductController::class, 'detail'])->name('products.detail');
 });
 
 Route::group(['prefix' => 'cart'], function () {

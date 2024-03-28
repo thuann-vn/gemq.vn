@@ -27,6 +27,9 @@ class GeneralSettings extends Settings
     public ?string $site_google;
     public ?array $site_footer;
 
+    public ?string $company_name;
+    public ?string $company_description;
+
     public static function group(): string
     {
         return 'general';

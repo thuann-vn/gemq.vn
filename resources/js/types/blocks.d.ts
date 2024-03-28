@@ -1,4 +1,4 @@
-import {Collection, ProductCategory, ProductCollection, Slider} from "@/types/index";
+import {Collection, ProductCategory, Slider} from "@/types/index";
 
 export interface Block {
     name: string;
@@ -27,6 +27,7 @@ export interface ContactFormBlock extends Block {
 }
 
 export interface CategoriesBlock extends Block {
+    title: string,
     categoryIds: number[];
     categories: ProductCategory[];
 }

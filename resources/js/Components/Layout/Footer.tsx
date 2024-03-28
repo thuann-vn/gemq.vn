@@ -2,9 +2,11 @@ import {usePage} from "@inertiajs/react";
 import React, {SVGProps} from "react";
 import {JSX} from "react/jsx-runtime";
 import {PageProps} from "@/types";
+import {useTranslation} from "react-i18next";
 
 export default () => {
     const {general_settings, footer_links} = usePage<PageProps>().props;
+    const {t} = useTranslation()
     const navigation = {
         social: [
             {
@@ -47,13 +49,34 @@ export default () => {
     }
     return (
         <>
-            <footer className="bg-[#2F4858] pt-14 border-t border-t-gray-200" aria-labelledby="footer-heading">
+            <footer className="bg-[#fff] pt-14 border-t border-t-gray-200" aria-labelledby="footer-heading">
                 <h2 id="footer-heading" className="sr-only">
                     Footer
                 </h2>
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="pb-8 xl:grid xl:grid-cols-5 xl:gap-8">
-                        <div className="grid grid-cols-4 gap-8 xl:col-span-4">
+                    <div className="pb-8 xl:grid xl:grid-cols-6 xl:gap-8">
+                        <div className={"xl:col-span-2"}>
+                            <a href="/" className="flex items-center">
+                                <img className="h-20 w-auto" src={general_settings.site_logo} alt=""/>
+                            </a>
+                            <p className="mt-8 text-base text-gray-400">
+                                {general_settings.site_description}
+                            </p>
+
+                            <h3 className="text-lg font-semibold tracking-wider uppercase mt-6 mb-3">{t('CÔNG TY GEMQ')}</h3>
+                            <div className={"leading-5"}>
+                                <p className="text-base text-gray-500">
+                                    {t('Đại diện: Huỳnh Viết Phương')}
+                                </p>
+                                <p className="text-base text-gray-500">
+                                    {t('MST: 0317768457')}
+                                </p>
+                                <p className="text-base text-gray-500">
+                                    {t('Quản lý bởi: Chi cục Thuế thành phố Thủ Đức cấp ngày 4/4/2023')}
+                                </p>
+                            </div>
+                        </div>
+                        <div className="grid grid-cols-3 gap-8 xl:col-span-4">
                             {
                                 Object.keys(footer_links.items).map((key: string, index: number) => {
                                     const column = footer_links.items[key];
@@ -75,6 +98,38 @@ export default () => {
                                                     })
                                                 }
                                             </ul>
+                                            {
+                                                index == 2 ? (
+                                                    <div className={"mt-6"}>
+                                                        <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">{t('Theo dõi chúng tôi tại')}</h3>
+                                                        <div className="flex space-x-6 md:order-2 mt-3">
+                                                            {navigation.social.map((item) => (
+                                                                <a key={item.name} href={item.href} target="_blank"
+                                                                   className="text-gray-400 hover:text-gray-500">
+                                                                    <span className="sr-only">{item.name}</span>
+                                                                    <item.icon className="h-6 w-6" aria-hidden="true"/>
+                                                                </a>
+                                                            ))}
+                                                        </div>
+
+
+                                                        <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase mt-6 mb-3">{t('Liên hệ')}</h3>
+                                                        <div className={"leading-5"}>
+                                                            <p className="text-base text-gray-500">
+                                                                {t('Hotline')}: <a className={"text-main-600"}
+                                                                                   href={`tel:${general_settings.site_phone}`}>{general_settings.site_phone}</a>
+                                                            </p>
+                                                            <p className="text-base text-gray-500">
+                                                                {t('Mail')}: <a className={"text-main-600"}
+                                                                                href={`mailto:${general_settings.site_email}`}>{general_settings.site_email}</a>
+                                                            </p>
+                                                            <p className="text-base text-gray-500">
+                                                                {t('Địa chỉ')}: {general_settings.site_address}
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                ) : null
+                                            }
                                         </div>
                                     )
                                 })
@@ -82,15 +137,6 @@ export default () => {
                         </div>
                     </div>
                     <div className="mt-8 border-t border-gray-200 pt-8 pb-8 md:flex md:items-center md:justify-between">
-                        <div className="flex space-x-6 md:order-2">
-                            {navigation.social.map((item) => (
-                                <a key={item.name} href={item.href} target="_blank"
-                                   className="text-gray-400 hover:text-gray-500">
-                                    <span className="sr-only">{item.name}</span>
-                                    <item.icon className="h-6 w-6" aria-hidden="true"/>
-                                </a>
-                            ))}
-                        </div>
                         <p className="mt-8 text-base text-gray-400 md:mt-0 md:order-1">
                             {general_settings.site_copyright}
                         </p>

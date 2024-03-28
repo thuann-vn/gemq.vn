@@ -2,8 +2,8 @@
 
 namespace App\Filament\Resources\Shop;
 
+use AmidEsfahani\FilamentTinyEditor\TinyEditor;
 use App\Filament\Resources\Shop\CategoryResource\Pages;
-use App\Filament\Resources\Shop\CategoryResource\RelationManagers;
 use App\Models\Shop\Category;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -25,9 +25,8 @@ class CategoryResource extends Resource
     protected static ?string $navigationGroup = 'Shop';
 
     protected static ?string $navigationIcon = 'heroicon-o-tag';
-    protected static bool $shouldRegisterNavigation = false;
-
-    protected static ?string $navigationParentItem = 'Products';
+    protected static ?string $label = 'service';
+    protected static ?string $navigationLabel = 'Services';
 
     protected static ?int $navigationSort = 3;
 
@@ -38,8 +37,7 @@ class CategoryResource extends Resource
                 Forms\Components\Section::make()
                     ->schema([
                         Forms\Components\FileUpload::make('image')
-                            ->image()
-                            ->avatar(),
+                            ->image(),
                         Forms\Components\Grid::make()
                             ->schema([
                                 Forms\Components\TextInput::make('name')
@@ -64,7 +62,7 @@ class CategoryResource extends Resource
                         Forms\Components\Toggle::make('is_visible')
                             ->label('Visible to customers.')
                             ->default(true),
-                        Forms\Components\MarkdownEditor::make('description')
+                        TinyEditor::make('description')
                             ->label('Description'),
                     ])
                     ->columnSpan(['lg' => fn (?Category $record) => $record === null ? 3 : 2]),
@@ -120,7 +118,7 @@ class CategoryResource extends Resource
     public static function getRelations(): array
     {
         return [
-            RelationManagers\ProductsRelationManager::class,
+//            RelationManagers\ProductsRelationManager::class,
         ];
     }
 

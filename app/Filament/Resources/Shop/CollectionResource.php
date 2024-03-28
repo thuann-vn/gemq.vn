@@ -22,11 +22,10 @@ class CollectionResource extends Resource
     protected static ?string $navigationGroup = 'Shop';
 
     protected static ?string $model = \App\Models\Shop\Collection::class;
-    protected static bool $shouldRegisterNavigation = false;
 
     protected static ?string $navigationIcon = 'heroicon-o-queue-list';
 
-    protected static ?string $navigationParentItem = 'Products';
+    protected static ?string $navigationParentItem = 'Projects';
 
     protected static ?int $navigationSort = 4;
 
