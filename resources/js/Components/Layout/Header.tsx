@@ -46,7 +46,7 @@ export default function Header() {
 
                         {/* Flyout menus */}
                         <Popover.Group className="hidden lg:block flex-1 px-10">
-                            <div className="flex items-center space-x-2 bg-white px-2 py-1 uppercase">
+                            <div className="flex justify-center items-center space-x-2 bg-white px-2 py-1 uppercase">
                                 {Object.keys(navigation.items).map((key) => {
                                     var page = navigation.items[key];
                                     if (page.children && Object.keys(page.children).length > 0) {
