@@ -24,7 +24,7 @@ export default function BlogIndex({posts}: Props) {
                 <div className={"grid grid-cols-1 gap-x-8 lg:grid-cols-4 gap-4 mt-12"}>
                     <ShopFilter/>
                     <div className="col-span-3">
-                        <div className={" grid grid-cols-3 gap-3"}>
+                        <div className={" grid md:grid-cols-3 gap-3"}>
                             {
                                 posts.data.map((post, key) => (
                                     <BlogCard post={post} key={key}/>

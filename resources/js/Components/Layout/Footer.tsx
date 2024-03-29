@@ -76,7 +76,7 @@ export default () => {
                                 </p>
                             </div>
                         </div>
-                        <div className="grid gap-8 sm:col-span-2 mt-6 sm:mt-0 xl:col-span-4">
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:col-span-2 mt-6 sm:mt-0 md:col-span-4">
                             {
                                 Object.keys(footer_links.items).map((key: string, index: number) => {
                                     const column = footer_links.items[key];

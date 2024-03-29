@@ -1,4 +1,4 @@
-import { PropsWithChildren } from 'react';
+import {PropsWithChildren} from 'react';
 import CartModal from "@/Components/Layout/CartModal";
 import Header from "@/Components/Layout/Header";
 
@@ -15,6 +15,7 @@ import 'swiper/css/effect-fade';
 import 'swiper/css/grid';
 import {CartProvider} from "@/Contexts/CartContext";
 import Footer from "@/Components/Layout/Footer";
+import CallNow from "@/Components/Layout/CallNow";
 
 export default function Layout({ children }: PropsWithChildren<{  }>) {
     return (
@@ -24,6 +25,7 @@ export default function Layout({ children }: PropsWithChildren<{  }>) {
                 <main>{children}</main>
                 <CartModal/>
                 <Footer/>
+                <CallNow/>
             </CartProvider>
         </div>
     );

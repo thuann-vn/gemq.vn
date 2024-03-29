@@ -18,7 +18,7 @@ export default function Testimonials({block}: { block: TestimonialsBlock }) {
                 ) : null
             }
             <div
-                className="mx-auto mt-10 grid max-w-lg sm:grid-cols-2 md:grid-cols-6 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:gap-x-10 lg:mx-0 lg:max-w-none">
+                className="mx-auto mt-10 grid max-w-lg sm:grid-cols-2 md:grid-cols-3 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:gap-x-10 lg:mx-0 lg:max-w-none">
                 {
                     block.items.map((item) => (
                         <div key={item.id}>

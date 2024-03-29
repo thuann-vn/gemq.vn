@@ -1,8 +1,7 @@
-import { Fragment, useState } from 'react'
-import { Dialog, Popover, Tab, Transition } from '@headlessui/react'
-import { Bars3Icon, MagnifyingGlassIcon, ShoppingBagIcon, XMarkIcon } from '@heroicons/react/24/outline'
-import {classNames, imageStorageUrl} from "@/Utils/Helper";
-import {Link} from "@inertiajs/react";
+import {Fragment} from 'react'
+import {Dialog, Transition} from '@headlessui/react'
+import {XMarkIcon} from '@heroicons/react/24/outline'
+import {imageStorageUrl} from "@/Utils/Helper";
 
 export default function MobileMenu({open, setOpen, navigation} : {open: boolean, setOpen: any, navigation:any}) {
     return (
@@ -47,7 +46,8 @@ export default function MobileMenu({open, setOpen, navigation} : {open: boolean,
                                     var page = navigation.items[key];
                                     return (
                                         <div key={page.name} className="flow-root">
-                                            <a href={page.data.url} className="-m-2 block p-2 font-medium text-gray-900 flex items-center">
+                                            <a href={page.type == 'route' ? route(page.data.url) : page.data.url}
+                                               className="-m-2 block p-2 font-medium text-gray-900 flex items-center">
                                                 {
                                                     page.data.icon ? (
                                                         <img src={imageStorageUrl(page.data.icon)} alt="" className="h-5 w-5 mr-1" />
