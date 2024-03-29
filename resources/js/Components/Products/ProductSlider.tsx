@@ -28,7 +28,7 @@ export default function ProductSlider({products, title, className = ''}: Product
                     nextEl: '.swiper-button-next_' + randomId,
                     prevEl: '.swiper-button-prev_' + randomId,
                 }}
-                slidesPerView={3}
+                slidesPerView={1}
                 spaceBetween={"15px"}
                 effect={"creative"}
                 grabCursor={true}

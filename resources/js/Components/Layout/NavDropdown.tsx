@@ -13,7 +13,7 @@ export default function NavDropdown({ item, isActive = false }: { item: MenuItem
                     <div>
                         <Menu.Button
                             className={
-                                classNames("flex items-center font-medium text-main-600 hover:text-white hover:bg-main-600 px-8 py-4 rounded-full",
+                                classNames("flex items-center font-bold text-main-600 hover:text-white hover:bg-main-600 px-2 py-4 rounded-full",
                                     item.data.classes ?? '',
                                     isActive ? 'bg-main-100 text-main-500' : ''
                                 )
@@ -33,8 +33,8 @@ export default function NavDropdown({ item, isActive = false }: { item: MenuItem
                         leaveTo="transform opacity-0 scale-95"
                     >
                         <Menu.Items
-                            className="origin-top-left absolute left-0 mt-3 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 py-1 focus:outline-none">
-                            {Object.keys(item.children).map((childKey) => {
+                            className="origin-top-left absolute left-0 min-w-[250px] mt-3 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 py-1 focus:outline-none">
+                            {Object.keys(item.children).map((childKey, index) => {
                                 var child = item.children[childKey];
                                 return (
                                     <Menu.Item key={child.label}>
@@ -43,7 +43,8 @@ export default function NavDropdown({ item, isActive = false }: { item: MenuItem
                                                 href={child.data.url}
                                                 className={classNames(
                                                     active ? 'bg-gray-100' : '',
-                                                    'flex items-center py-3 px-4 text-sm text-gray-700'
+                                                    'flex items-center py-3 px-4 text-main-600 font-bold border-t',
+                                                    index === 0 ? 'border-t-0' : ''
                                                 )}
                                             >
                                                 {

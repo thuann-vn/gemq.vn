@@ -19,11 +19,11 @@ export default function BrandSlider({block}: { block: BrandLogoSliderBlock }) {
                 ) : null
             }
             <div
-                className="mx-auto mt-10 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+                className="mx-auto mt-10 mb-10 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-3">
                 {
                     block.brands.map((brand: ProductCategory) => (
                         <img
-                            className="transition duration-500 h-32 object-fit ease-in-out transform group-hover:-translate-y-1 group-hover:scale-110"
+                            className="transition duration-500 md:h-32 object-contain ease-in-out transform group-hover:-translate-y-1 group-hover:scale-110"
                             src={imageStorageUrl(brand.image)}
                             alt={brand.name}/>
                     ))

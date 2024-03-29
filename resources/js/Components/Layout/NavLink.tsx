@@ -6,7 +6,7 @@ export default function NavLink({ active = false, className = '', icon = '', lab
         <Link
             {...props}
             className={
-                classNames("flex items-center font-medium text-main-600 hover:text-white hover:bg-main-600 px-4 py-3 rounded-full",
+                classNames("flex items-center font-bold text-main-600 hover:text-white hover:bg-main-600 px-2 py-3 rounded-full",
                     className,
                     active ? 'bg-main-100 text-main-500' : ''
                 )

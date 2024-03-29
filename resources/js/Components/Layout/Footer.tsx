@@ -49,7 +49,7 @@ export default () => {
     }
     return (
         <>
-            <footer className="bg-[#151D2D] pt-14 border-t border-t-gray-200" aria-labelledby="footer-heading">
+            <footer className="bg-[#151D2D] pt-6 sm:pt-14 border-t border-t-gray-200" aria-labelledby="footer-heading">
                 <h2 id="footer-heading" className="sr-only">
                     Footer
                 </h2>
@@ -76,7 +76,7 @@ export default () => {
                                 </p>
                             </div>
                         </div>
-                        <div className="grid grid-cols-3 gap-8 xl:col-span-4">
+                        <div className="grid gap-8 sm:col-span-2 mt-6 sm:mt-0 xl:col-span-4">
                             {
                                 Object.keys(footer_links.items).map((key: string, index: number) => {
                                     const column = footer_links.items[key];

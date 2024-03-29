@@ -27,7 +27,12 @@ export default function Header() {
 
             <header className="bg-white relative border-b border-transparent">
                 <nav aria-label="Top" className="mx-auto container px-4 sm:px-6 lg:px-8">
-                    <div className="flex h-24 items-center">
+                    <div className="flex justify-between h-24 items-center w-full">
+                        {/* Logo */}
+                        <div className="ml-4 flex lg:ml-0">
+                            <ApplicationLogo/>
+                        </div>
+
                         <button
                             type="button"
                             className="relative rounded-md bg-white p-2 text-gray-400 lg:hidden"
@@ -37,11 +42,6 @@ export default function Header() {
                             <span className="sr-only">Open menu</span>
                             <Bars3Icon className="h-6 w-6" aria-hidden="true"/>
                         </button>
-
-                        {/* Logo */}
-                        <div className="ml-4 flex lg:ml-0">
-                            <ApplicationLogo/>
-                        </div>
 
 
                         {/* Flyout menus */}

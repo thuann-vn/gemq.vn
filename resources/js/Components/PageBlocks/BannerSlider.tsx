@@ -1,12 +1,8 @@
 import * as React from 'react';
 
-import { Swiper, SwiperSlide } from 'swiper/react';
+import {Swiper, SwiperSlide} from 'swiper/react';
 import {Autoplay, Navigation, Pagination, Parallax} from 'swiper/modules';
-import {classNames, imageStorageUrl} from "@/Utils/Helper";
-import {Link} from "@inertiajs/react";
-import {SliderItems} from "@/types";
 import {SliderBlock} from "@/types/blocks";
-import Container from "@/Components/Layout/Container";
 import Banner from "@/Components/PageBlocks/Banner";
 
 export default function BannerSlider({block} : {block: SliderBlock}) {

@@ -13,7 +13,7 @@ export default function Grid({ block }: { block: GridBlock }) {
                 </h2>
                 <Divider/>
             </>
-            <div className={`grid grid-cols-${block.columns.length} gap-x-2`}>
+            <div className={`grid md:grid-cols-${block.columns.length} gap-x-2`}>
                 {
                     block.columns.map((column: Block[], index: any) => (
                         <div>
