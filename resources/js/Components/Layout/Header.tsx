@@ -46,7 +46,7 @@ export default function Header() {
 
                         {/* Flyout menus */}
                         <Popover.Group className="hidden lg:block flex-1 px-10">
-                            <div className="flex items-center space-x-2 bg-white px-2 py-1">
+                            <div className="flex items-center space-x-2 bg-white px-2 py-1 uppercase">
                                 {Object.keys(navigation.items).map((key) => {
                                     var page = navigation.items[key];
                                     if (page.children && Object.keys(page.children).length > 0) {
@@ -60,10 +60,10 @@ export default function Header() {
                                     } else {
                                         return (
                                             <NavLink key={key}
-                                                     href={page.data.url} active={isCurrentPage(page.data.url)}
+                                                     href={page.type == 'route' ? route(page.data.url) : page.data.url}
+                                                     active={isCurrentPage(page.data.url)}
                                                      icon={page.data.icon ? imageStorageUrl(page.data.icon) : null}
                                                      label={page.label} className={page.data.classes ?? ''}>
-
                                             </NavLink>
                                         )
                                     }

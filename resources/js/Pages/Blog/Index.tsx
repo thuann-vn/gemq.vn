@@ -1,38 +1,40 @@
-import {BlogCategory, BlogPost, BlogTag, PageProps, Slider} from '@/types';
+import {BlogPost} from '@/types';
 import AppHead from "@/Components/Layout/AppHead";
-import WideBlogCard from "@/Components/Blog/WideBlogCard";
 import Pagination from "@/Components/Other/Pagination";
-import BlogSidebar from "@/Components/Blog/BlogSidebar";
+import ShopFilter from "@/Components/ProductCategory/ShopFilter";
+import {useTranslation} from "react-i18next";
+import Breadcrumb from "@/Components/Other/Breadcrumb";
+import BlogCard from "@/Components/Blog/BlogCard";
 
 interface Props {
-    posts: {data: BlogPost[], links: any[]},
-    featuredPosts: BlogPost[],
-    tags: string[],
-    categories: BlogCategory[],
-    category: BlogCategory | null,
-    tag: string | null
+    posts: { data: BlogPost[], links: any[] }
 }
-export default function BlogIndex({posts, featuredPosts, tags, categories, category, tag}: Props) {
-    console.log(tag, tags)
+
+export default function BlogIndex({posts}: Props) {
+    const {t} = useTranslation()
+    const breadcrumbs = [
+        {id: 1, name: 'Trang chủ', href: '/'},
+        {id: 2, name: t('Tin tức chuyên ngành')},
+    ]
     return (
         <>
-            <AppHead title={category ? category.name : 'Blog' } />
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                <h1 className="text-4xl font-bold text-gray-900 mt-12">
-                    {tag ? 'Tag: ' + tag :( category ? 'Category: ' + category.name : 'Blog') }
-                </h1>
-                <div className={"grid grid-cols-1 md:grid-cols-3 gap-4"}>
-                    <div className="col-span-2">
-                        {
-                            posts.data.map((post, key) => (
-                                <WideBlogCard post={post} key={key}/>
-                            ))
-                        }
+            <AppHead title={t('Tin tức')}/>
+            <div className="container  mx-auto px-4 sm:px-6 lg:px-8">
+                <Breadcrumb breadcrumbs={breadcrumbs}/>
+                <div className={"grid grid-cols-1 gap-x-8 lg:grid-cols-4 gap-4 mt-12"}>
+                    <ShopFilter/>
+                    <div className="col-span-3">
+                        <div className={" grid grid-cols-3 gap-3"}>
+                            {
+                                posts.data.map((post, key) => (
+                                    <BlogCard post={post} key={key}/>
+                                ))
+                            }
+                        </div>
                         <div className={"my-10"}>
                             <Pagination data={posts}/>
                         </div>
                     </div>
-                    <BlogSidebar featuredPosts={featuredPosts} tags={tags} categories={categories}/>
                 </div>
             </div>
         </>

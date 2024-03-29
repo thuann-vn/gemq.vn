@@ -191,20 +191,25 @@
 }
 
 .page-content{
-    h1{
-        font-size: 2.5rem;
-        font-weight: 600;
-        margin-bottom: 1rem;
+    p {
+        margin-bottom: 10px;
+        line-height: 24px;
     }
 
-    h2{
+    h1{
         font-size: 2rem;
         font-weight: 600;
         margin-bottom: 1rem;
     }
 
+    h2{
+        font-size: 1.8rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+
     h3{
-        font-size: 1.5rem;
+        font-size: 1.4rem;
         font-weight: 600;
         margin-bottom: 1rem;
     }
@@ -213,5 +218,44 @@
         font-size: 1.25rem;
         font-weight: 600;
         margin-bottom: 1rem;
+    }
+
+    figure {
+        margin: 20px auto;
+        border: 1px solid #efefef;
+        border-radius: 4px;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+
+        figcaption {
+            font-size: 0.8rem;
+            color: #999;
+            text-align: center;
+            padding: 10px;
+        }
+    }
+}
+
+.page-toc {
+    background: #f9f9f9;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    display: table;
+    margin-bottom: 1em;
+    padding: 10px 20px 10px 10px;
+    position: relative;
+    width: auto;
+
+    ul {
+        margin-left: 20px;
+
+        li {
+            list-style: square;
+        }
     }
 }

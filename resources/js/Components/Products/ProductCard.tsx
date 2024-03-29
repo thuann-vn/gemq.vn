@@ -6,7 +6,19 @@ import {CartContext} from "@/Contexts/CartContext";
 import {classNames} from "@/Utils/Helper";
 import {PageProps, Product} from "@/types";
 
-export default function ProductCard({product, className = '', onRemoveFromWishList, showCartButton = false}: { product: Product, className?: string, onRemoveFromWishList?: any, showCartButton?: boolean }) {
+export default function ProductCard({
+                                        product,
+                                        className = '',
+                                        onRemoveFromWishList,
+                                        showCartButton = false,
+                                        contentContainerClass
+                                    }: {
+    product: Product,
+    className?: string,
+    onRemoveFromWishList?: any,
+    showCartButton?: boolean,
+    contentContainerClass?: string
+}) {
     const {openCart} = useContext(CartContext);
     const {auth, wishlist = []} = usePage<PageProps>().props;
     const addProductToCart = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
@@ -64,11 +76,9 @@ export default function ProductCard({product, className = '', onRemoveFromWishLi
                         <img src={product.featured_image_url} alt={product.name}
                              className="w-full group-hover:scale-110 transition-all duration-300"/>
                     </Link>
-                    <div className="product-buttons absolute top-[15px] right-[15px] z-10">
-
-                    </div>
                 </div>
-                <Link href={route('shop.detail', {slug: product.slug})} className={"block p-[20px] pt-0"}>
+                <Link href={route('shop.detail', {slug: product.slug})}
+                      className={classNames("block p-[20px] pt-0", contentContainerClass ?? '')}>
                     {renderProductBadge()}
                     <h3 className="mt-4 text-main-600 font-bold line-clamp-2 min-h-[48px]">{product.name}</h3>
                     <p>

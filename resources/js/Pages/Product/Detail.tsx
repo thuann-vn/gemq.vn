@@ -1,96 +1,102 @@
-import {useContext, useEffect, useState} from 'react'
-import Layout from "@/Layouts/Layout";
-import {PageProps, Product, ProductCategory, ProductVariant} from "@/types";
-import ProductGallery from "@/Components/Products/ProductGallery";
-import StarRating from "@/Components/Other/StarRating";
-import ProductTabs from "@/Components/Products/ProductTabs";
-import CustomCurrencyFormat from "@/Components/CurrencyFormat";
-import * as React from "react";
-import ProductCartForm from "@/Components/Products/ProductCartForm";
-import ProductSlider from "@/Components/Products/ProductSlider";
+import {useState} from 'react'
 import Breadcrumb from "@/Components/Other/Breadcrumb";
 import AppHead from "@/Components/Layout/AppHead";
+import {BlogPost, Product, ProductCategory, ProductCollection} from "@/types";
+import ShopFilter from "@/Components/ProductCategory/ShopFilter";
+import {useTranslation} from "react-i18next";
+import {
+    FacebookIcon,
+    FacebookMessengerIcon,
+    FacebookMessengerShareButton,
+    FacebookShareButton,
+    LinkedinIcon,
+    LinkedinShareButton,
+    TelegramIcon,
+    TelegramShareButton,
+    TwitterIcon,
+    TwitterShareButton,
+    ViberIcon,
+    ViberShareButton,
+    WhatsappIcon,
+    WhatsappShareButton
+} from "react-share";
 
-export default function ProductDetail({product, productVariants, productOptions, productAttributes, images, relatedProducts, firstCategory}: { product: Product, productOptions:any, productVariants: any, productAttributes:any, images: any, relatedProducts: any, firstCategory: ProductCategory }) {
-    let breadcrumbs = [
-        {id: 1, name: 'Home', href: '/'},
+export default function Detail({product, allCategories, featuredPosts, content, toc}: {
+    product: Product,
+    allCategories: ProductCategory[],
+    products: ProductCollection,
+    featuredPosts: BlogPost[],
+    content: string,
+    toc: string
+}) {
+    const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
+    const breadcrumbs = [
+        {id: 1, name: 'Trang chủ', href: '/'},
+        {id: 2, name: product.name},
     ]
-    if (firstCategory) {
-        breadcrumbs.push({id: 2, name: firstCategory.name, href: route('shop.category', {slug: firstCategory.slug})})
-    }
-    breadcrumbs.push({id: 3, name: product.name, href: ''})
-    const [selectedVariant, setSelectedVariant] = useState<ProductVariant | null>(null)
-
+    const {t} = useTranslation()
+    const shareUrl = route('shop.category', product.slug)
     return (
         <>
-            <AppHead title={product.name}/>
-            <div className="bg-gray-100 pb-10">
-                <div className="pt-6">
-                    <div className={'container mx-auto px-4 sm:px-6 lg:px-8'}>
+            <AppHead title={product?.name ?? 'Dự án'}/>
+            <div className="bg-white">
+                <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                    <div>
                         <Breadcrumb breadcrumbs={breadcrumbs}/>
+                        <section aria-labelledby="products-heading" className="pb-24 pt-6">
+                            <h2 id="products-heading" className="sr-only">
+                                {product.name}
+                            </h2>
 
-                        <div className="bg-white p-4 mt-5 rounded-lg">
-                            {/* Product name */}
-                            <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">{product.name}</h1>
+                            <div className="grid grid-cols-1 gap-x-8 lg:grid-cols-4">
+                                {/* Filters */}
+                                <ShopFilter
+                                    allCategories={allCategories}
+                                    featuredPosts={featuredPosts}
+                                />
 
-                            {/* Product extra info */}
-                            <div className={"flex items-center text-sm leading-4 mt-3"}>
-                                <div className="text-gray-500 border-r border-r-gray-200 pr-3 mr-3">Brands: <span className={"text-black"}>{product.brand?.name}</span></div>
-                                <div className="flex items-center border-r border-r-gray-200 pr-3 mr-3">
-                                    <StarRating value={4}/> <span className={"text-gray-500"}>(117)</span>
-                                </div>
-                                <div className="text-gray-500">SKU: <span className={"text-black"}>{product.sku}</span></div>
-                            </div>
+                                {/* Product grid */}
+                                <div className="lg:col-span-3">
+                                    <div className="flex items-center justify-between pb-6">
+                                        <h1 className="text-4xl font-bold tracking-tight text-main-600">
+                                            {product?.name ?? 'Dịch vụ'}
+                                        </h1>
+                                    </div>
+                                    <div className={"page-toc"}>
+                                        <p className={"font-bold mb-3 text-lg"}>{t('Nội dung bài viết')}</p>
+                                        <div dangerouslySetInnerHTML={{__html: toc}}></div>
+                                    </div>
+                                    <div className={"page-content"} dangerouslySetInnerHTML={{__html: content}}></div>
 
-                            {/* Product info */}
-                            <div
-                                className="lg:grid lg:grid-cols-2 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8">
-                                {/* Product gallery */}
-                                <ProductGallery images={images}/>
-
-                                {/* Options */}
-                                <div className="mt-4 lg:row-span-3 lg:mt-0">
-                                    <h2 className="sr-only">Product information</h2>
-                                    <p className="text-3xl tracking-tight text-red-600">
-                                        {
-                                            product.old_price > product.price &&
-                                            <span className={"text-gray-400 text-sm line-through mr-2"}>
-                                                <CustomCurrencyFormat value={selectedVariant?.old_price ? selectedVariant.old_price : product.old_price}/>
-                                            </span>
-                                        }
-                                        <CustomCurrencyFormat value={selectedVariant ? selectedVariant.price : product.price} />
-                                    </p>
-                                    {
-                                        (product.has_variants && selectedVariant) || (!product.has_variants && product.qty) ?
-                                            <p className="inline-flex mt-3 items-center text-xs uppercase rounded-full bg-green-100 px-2 py-0 text-green-600 leading-6">
-                                                In stock
-                                            </p> :  <p className="inline-flex mt-3 items-center text-xs uppercase rounded-full bg-red-100 px-2 py-0 text-red-600 leading-6">
-                                            Out of stock
-                                        </p>
-                                    }
-
-
-                                    {/*Description*/}
-                                    <p className="text-base text-gray-500 mt-3">{product.description}</p>
-
-                                    {/*Add to cart*/}
-                                    <ProductCartForm
-                                        product={product}
-                                        variants={productVariants}
-                                        attributes={productAttributes}
-                                        options={productOptions}
-                                        selectedVariant={selectedVariant}
-                                        setSelectedVariant={setSelectedVariant}
-                                    />
+                                    <div className="my-10">
+                                        <p className={"font-bold mb-3"}>{t('Chia sẻ:')}</p>
+                                        <div className="sm:flex gap-2">
+                                            <FacebookShareButton url={shareUrl}>
+                                                <FacebookIcon size={48} round={true}/>
+                                            </FacebookShareButton>
+                                            <LinkedinShareButton url={shareUrl}>
+                                                <LinkedinIcon size={48} round={true}/>
+                                            </LinkedinShareButton>
+                                            <FacebookMessengerShareButton url={shareUrl} appId={""}>
+                                                <FacebookMessengerIcon size={48} round={true}/>
+                                            </FacebookMessengerShareButton>
+                                            <TelegramShareButton url={shareUrl}>
+                                                <TelegramIcon size={48} round={true}/>
+                                            </TelegramShareButton>
+                                            <TwitterShareButton url={shareUrl}>
+                                                <TwitterIcon size={48} round={true}/>
+                                            </TwitterShareButton>
+                                            <ViberShareButton url={shareUrl}>
+                                                <ViberIcon size={48} round={true}/>
+                                            </ViberShareButton>
+                                            <WhatsappShareButton url={shareUrl}>
+                                                <WhatsappIcon size={48} round={true}/>
+                                            </WhatsappShareButton>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-
-                        {/* Product tabs */}
-                        <ProductTabs product={product}/>
-
-                        {/* Related products */}
-                        <ProductSlider products={relatedProducts} title={"Related Products"} className={"mt-7"}/>
+                        </section>
                     </div>
                 </div>
             </div>

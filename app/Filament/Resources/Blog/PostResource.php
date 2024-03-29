@@ -2,21 +2,19 @@
 
 namespace App\Filament\Resources\Blog;
 
+use AmidEsfahani\FilamentTinyEditor\TinyEditor;
+use App\Filament\Form\Fields\SEOFields;
 use App\Filament\Resources\Blog\PostResource\Pages;
-use App\Filament\Resources\Blog\PostResource\RelationManagers;
 use App\Models\Blog\Post;
 use Filament\Forms;
-use Filament\Forms\Components\SpatieTagsInput;
 use Filament\Forms\Form;
 use Filament\Infolists\Components;
 use Filament\Infolists\Infolist;
-use Filament\Notifications\Notification;
-use Filament\Pages\SubNavigationPosition;
-use Filament\Resources\Pages\Page;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
@@ -39,52 +37,49 @@ class PostResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\Section::make()
+                Forms\Components\Group::make()
                     ->schema([
-                        Forms\Components\TextInput::make('title')
-                            ->required()
-                            ->live(onBlur: true)
-                            ->maxLength(255)
-                            ->afterStateUpdated(fn (string $operation, $state, Forms\Set $set) => $operation === 'create' ? $set('slug', Str::slug($state)) : null),
+                        Forms\Components\Section::make()
+                            ->schema([
+                                Forms\Components\TextInput::make('title')
+                                    ->required()
+                                    ->live(onBlur: true)
+                                    ->maxLength(255)
+                                    ->afterStateUpdated(fn(string $operation, $state, Forms\Set $set) => $operation === 'create' ? $set('slug', Str::slug($state)) : null),
+                                Forms\Components\TextInput::make('slug')
+                                    ->disabled()
+                                    ->dehydrated()
+                                    ->required()
+                                    ->maxLength(255)
+                                    ->unique(Post::class, 'slug', ignoreRecord: true),
 
-                        Forms\Components\TextInput::make('slug')
-                            ->disabled()
-                            ->dehydrated()
-                            ->required()
-                            ->maxLength(255)
-                            ->unique(Post::class, 'slug', ignoreRecord: true),
-
-                        Forms\Components\MarkdownEditor::make('content')
-                            ->required()
-                            ->columnSpan('full'),
-
-                        Forms\Components\Select::make('blog_author_id')
-                            ->relationship('author', 'name')
-                            ->searchable()
-                            ->required(),
-
-                        Forms\Components\Select::make('blog_category_id')
-                            ->relationship('category', 'name')
-                            ->searchable()
-                            ->required(),
-                        Forms\Components\Toggle::make('is_featured')
-                            ->label('Featured')
-                            ->hint('Featured posts will be displayed on the homepage and sidebar.'),
-                        Forms\Components\DatePicker::make('published_at')
-                            ->label('Published Date'),
-                        SpatieTagsInput::make('tags'),
-                    ])
-                    ->columns(2),
-
-                Forms\Components\Section::make('Image')
-                    ->schema([
-                        Forms\Components\FileUpload::make('image')
-                            ->label('Image')
-                            ->image()
-                            ->hiddenLabel(),
-                    ])
-                    ->collapsible(),
-            ]);
+                                TinyEditor::make('content')
+                                    ->required()
+                                    ->columnSpan('full'),
+                                SEOFields::create()->columnSpanFull(),
+                            ])
+                            ->columns(2)
+                            ->columnSpan(2),
+                        Forms\Components\Section::make('Image')
+                            ->schema([
+                                Forms\Components\FileUpload::make('image')
+                                    ->label('Image')
+                                    ->image(),
+                                Forms\Components\Toggle::make('is_featured')
+                                    ->label('Featured'),
+                                Forms\Components\DatePicker::make('published_at')
+                                    ->default(now())
+                                    ->label('Published Date'),
+                                Forms\Components\Select::make('blog_category_id')
+                                    ->relationship('category', 'name')
+                                    ->searchable()
+                                    ->preload()
+                                    ->required(),
+                            ])
+                            ->collapsible()
+                            ->columnSpan(1),
+                    ])->columns(3),
+            ])->columns(1);
     }
 
     public static function table(Table $table): Table
@@ -169,12 +164,7 @@ class PostResource extends Resource
             ])
             ->groupedBulkActions([
                 Tables\Actions\DeleteBulkAction::make()
-                    ->action(function () {
-                        Notification::make()
-                            ->title('Now, now, don\'t be cheeky, leave some records for others to play with!')
-                            ->warning()
-                            ->send();
-                    }),
+                    ->action(fn(Collection $records) => $records->each->delete()),
             ]);
     }
 
@@ -215,15 +205,6 @@ class PostResource extends Resource
                     ])
                     ->collapsible(),
             ]);
-    }
-
-    public static function getRecordSubNavigation(Page $page): array
-    {
-        return $page->generateNavigationItems([
-            Pages\ViewPost::class,
-            Pages\EditPost::class,
-            Pages\ManagePostComments::class,
-        ]);
     }
 
     public static function getRelations(): array

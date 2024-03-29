@@ -5,13 +5,14 @@ export default function Breadcrumb({breadcrumbs}: { breadcrumbs: any[] }) {
     return (
         <nav aria-label="Breadcrumb">
             <ol role="list"
-                className="mx-auto flex items-center space-x-2 mt-6">
+                className="mx-auto flex items-center space-x-2 mt-6 bg-main-50 px-5 py-2">
                 {breadcrumbs.map((breadcrumb) => (
                     <li key={breadcrumb.id}>
                         {
                             breadcrumb.href ? (
                                 <div className="flex items-center">
-                                    <Link href={breadcrumb.href} className="mr-2 text-sm font-medium text-gray-900">
+                                    <Link href={breadcrumb.href}
+                                          className="mr-2 text-sm font-medium text-main-600 hover:text-main-500">
                                         {breadcrumb.name}
                                     </Link>
                                     <svg
@@ -27,7 +28,7 @@ export default function Breadcrumb({breadcrumbs}: { breadcrumbs: any[] }) {
                                 </div>
                             ) : (
                                 <span aria-current="page"
-                                   className="text-sm font-medium text-gray-500 hover:text-gray-600">
+                                      className="text-sm font-medium text-main-600 hover:text-main-500">
                                     {breadcrumb.name}
                                 </span>
                             )

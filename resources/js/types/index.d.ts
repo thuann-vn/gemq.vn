@@ -20,7 +20,9 @@ export type PageProps<T extends Record<string, unknown> = Record<string, unknown
     flash: {
         success: string;
         error: string;
-    }
+    },
+    all_categories: ProductCategory[],
+    featured_posts: BlogPost[],
 };
 
 export interface ShopSettings{
@@ -46,6 +48,7 @@ export interface MenuItem{
     label: string;
     children: MenuItems;
     data: MenuItemOptions;
+    type: string;
 }
 
 export interface MenuItemOptions{
@@ -120,6 +123,7 @@ export interface BlogPost{
     id: number;
     title: string;
     slug: string;
+    excerpt: string;
     content: string;
     image: string;
     created_at: string;

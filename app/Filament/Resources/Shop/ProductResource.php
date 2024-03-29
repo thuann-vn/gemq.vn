@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\Shop;
 
 use AmidEsfahani\FilamentTinyEditor\TinyEditor;
+use App\Filament\Form\Fields\SEOFields;
 use App\Filament\Resources\Shop\ProductResource\Pages;
 use App\Models\Shop\Product;
 use Filament\Forms;
@@ -92,6 +93,12 @@ class ProductResource extends Resource
                                             ->reorderable()
                                             ->hiddenLabel(),
                                     ]),
+                                Tabs\Tab::make('SEO')
+                                    ->icon('heroicon-o-globe-alt')
+                                    ->schema([
+                                        SEOFields::create()
+                                    ]),
+
                             ])
                             ->persistTabInQueryString(),
                     ])

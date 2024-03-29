@@ -92,7 +92,7 @@ export default () => {
                                                         const child = column.children[childKey];
                                                         return (
                                                             <li key={childIdx}>
-                                                                <a href={child.data.url}
+                                                                <a href={child.type == 'route' ? route(child.data.url) : child.data.url}
                                                                    className="text-base text-white hover:text-main-600">
                                                                     {child.label}
                                                                 </a>

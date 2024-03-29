@@ -39,13 +39,11 @@ Route::middleware('auth')->prefix('account')->group(function () {
     Route::delete('/remove-wishlist', [ProfileController::class, 'removeWishlist'])->name('profile.remove-wishlist');
 });
 
-Route::group([], function () {
-    Route::get('/product/available-variants', [ProductController::class, 'getAvailableProductVariants'])->name('products.available-variants');
-    Route::get('/search', [ProductController::class, 'search'])->name('products.search');
-
-    Route::get('/', [ProductController::class, 'index'])->name('shop.index');
-    Route::get('/{slug}', [ProductController::class, 'index'])->name('shop.category');
-    Route::get('/du-an/{slug}', [ProductController::class, 'detail'])->name('shop.detail');
+Route::group(['prefix' => 'tin-tuc'], function () {
+    Route::get('/', [BlogController::class, 'index'])->name('blog');
+    Route::get('/category/{category}', [BlogController::class, 'index'])->name('blog.category');
+    Route::get('/tag/{tag}', [BlogController::class, 'index'])->name('blog.tag');
+    Route::get('/{slug}', [BlogController::class, 'show'])->name('blog.detail');
 });
 
 Route::group(['prefix' => 'cart'], function () {
@@ -65,20 +63,21 @@ Route::group(['prefix' => 'checkout'], function () {
     Route::get('/wards', [CheckoutController::class, 'getWards'])->name('checkout.get-wards');
 });
 
-
-Route::group(['prefix' => 'blog'], function () {
-    Route::get('/', [BlogController::class, 'index'])->name('blog');
-    Route::get('/category/{category}', [BlogController::class, 'index'])->name('blog.category');
-    Route::get('/tag/{tag}', [BlogController::class, 'index'])->name('blog.tag');
-    Route::get('/{slug}', [BlogController::class, 'show'])->name('blog.detail');
-});
-
 Route::group(['prefix' => 'contact'], function () {
     Route::post('/', [ContactController::class, 'submitContact'])->name('contact.submit');
 });
 
 Route::group(['prefix' => 'newsletter'], function () {
     Route::post('/', [NewsLetterController::class, 'subscribe'])->name('newsletter.subscribe');
+});
+
+Route::group([], function () {
+    Route::get('/product/available-variants', [ProductController::class, 'getAvailableProductVariants'])->name('products.available-variants');
+    Route::get('/search', [ProductController::class, 'search'])->name('products.search');
+
+    Route::get('/du-an', [ProductController::class, 'index'])->name('shop.index');
+    Route::get('/dich-vu/{slug}', [ProductController::class, 'category'])->name('shop.category');
+    Route::get('/du-an/{slug}', [ProductController::class, 'detail'])->name('shop.detail');
 });
 
 // PAGES
