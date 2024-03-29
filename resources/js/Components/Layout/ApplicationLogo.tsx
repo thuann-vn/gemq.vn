@@ -7,7 +7,7 @@ export default function ApplicationLogo() {
         <Link href={route('home')}>
             <span className="sr-only">{general_settings.site_name}</span>
             <img
-                className="h-20 w-auto"
+                className="h-16 md:h-20 w-auto"
                 src={general_settings.site_logo}
                 alt={general_settings.site_name}
             />

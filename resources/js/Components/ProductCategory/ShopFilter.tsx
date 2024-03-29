@@ -8,7 +8,7 @@ export default function ShopFilter({category}: { category?: ProductCategory }) {
     const {all_categories, featured_posts} = usePage<PageProps>().props
 
     return (
-        <div>
+        <div className={"hidden md:block"}>
             <section>
                 <h3 className={"uppercase px-2 py-2 font-bold bg-main-600 text-white"}>{t('Dịch vụ nổi bật')}</h3>
                 <ul role="list"

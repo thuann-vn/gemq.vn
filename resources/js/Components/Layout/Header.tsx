@@ -28,11 +28,7 @@ export default function Header() {
             <header className="bg-white relative border-b border-transparent">
                 <nav aria-label="Top" className="mx-auto container px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between h-24 items-center w-full">
-                        {/* Logo */}
-                        <div className="ml-4 flex lg:ml-0">
-                            <ApplicationLogo/>
-                        </div>
-
+                        {/*Mobile toggle*/}
                         <button
                             type="button"
                             className="relative rounded-md bg-white p-2 text-gray-400 lg:hidden"
@@ -42,6 +38,11 @@ export default function Header() {
                             <span className="sr-only">Open menu</span>
                             <Bars3Icon className="h-6 w-6" aria-hidden="true"/>
                         </button>
+
+                        {/* Logo */}
+                        <div className="flex lg:ml-0">
+                            <ApplicationLogo/>
+                        </div>
 
 
                         {/* Flyout menus */}
@@ -73,14 +74,14 @@ export default function Header() {
 
                         {/*Hotline*/}
                         <div className="flex items-center justify-center sm:items-stretch sm:justify-start">
-                            <div className="hidden sm:block sm:ml-6">
+                            <div className="sm:ml-6">
                                 <div className="flex space-x-2">
                                     <Link href={"tel:" + general_settings.site_phone}
-                                          className="animate-wiggle animate-infinite animate-duration-1000 animate-ease-linear animate-normal flex items-center text-[12px] font-medium  bg-main-600 text-white hover:text-main-700 px-4 py-2 rounded-full">
-                                        <img src={"/images/hotline.png"} className={"me-3"}/>
+                                          className="animate-wiggle animate-infinite animate-duration-1000 animate-ease-linear animate-normal flex items-center text-[12px] font-medium  bg-main-600 text-white hover:text-main-700 px-4 py-1 md:py-2 rounded-full">
+                                        <img src={"/images/hotline.png"} className={"me-1 md:me-3 md:w-10 w-6"}/>
                                         <div className="leading-5">
                                             HOTLINE <br/><span
-                                            className={"text-[16px] font-bold"}>{general_settings.site_phone}</span>
+                                            className={"text-[14px] md:text-[16px] font-bold"}>{general_settings.site_phone}</span>
                                         </div>
                                     </Link>
                                 </div>
