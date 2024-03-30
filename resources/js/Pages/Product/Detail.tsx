@@ -51,8 +51,6 @@ export default function Detail({product, allCategories, featuredPosts, content, 
                             <div className="grid grid-cols-1 gap-x-8 lg:grid-cols-4">
                                 {/* Filters */}
                                 <ShopFilter
-                                    allCategories={allCategories}
-                                    featuredPosts={featuredPosts}
                                 />
 
                                 {/* Product grid */}
