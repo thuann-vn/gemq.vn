@@ -39,6 +39,7 @@
         "phpsa/filament-authentication": "^3.1",
         "rickdbcn/filament-email": "^1.0",
         "ryangjchandler/filament-navigation": "^1.0@beta",
+        "spatie/laravel-sitemap": "^7.2",
         "squirephp/countries-en": "^3.3",
         "squirephp/currencies-en": "^3.3",
         "statikbe/laravel-filament-chained-translation-manager": "^3.1",

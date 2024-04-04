@@ -82,6 +82,7 @@ Route::group([], function () {
 
 // PAGES
 Route::get('/', [PageController::class, 'homePage'])->name('home');
+Route::get('/generate-sitemap', [PageController::class, 'generateSitemap'])->name('generate-sitemap');
 Route::get('/{page}', [PageController::class, 'show'])->name('page.detail');
 
 // AUTH PAGES

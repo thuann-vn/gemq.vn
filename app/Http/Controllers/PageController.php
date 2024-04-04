@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog\Post;
 use App\Models\Page;
+use App\Models\Shop\Category;
+use App\Models\Shop\Product;
 use App\Settings\GeneralSettings;
 use Artesaos\SEOTools\Facades\SEOMeta;
 use Artesaos\SEOTools\Facades\SEOTools;
 use Illuminate\Http\Response;
 use Inertia\Inertia;
+use Spatie\Sitemap\Sitemap;
 use Statikbe\FilamentFlexibleContentBlocks\ContentBlocks\AbstractContentBlock;
 use Statikbe\FilamentFlexibleContentBlocks\Models\Contracts\HasContentBlocks;
 
@@ -61,5 +65,37 @@ class PageController extends Controller
         }
 
         return $blocks;
+    }
+
+    public function generateSitemap()
+    {
+        $siteMap = Sitemap::create();
+        $siteMap->add(route('home'));
+
+        $pages = Page::all();
+        foreach ($pages as $page) {
+            $siteMap->add(route('page.detail', $page->slug));
+        }
+
+        $siteMap->add(route('shop.index'));
+
+        $products = Product::whereIsVisible(true)->get();
+        foreach ($products as $product) {
+            $siteMap->add(route('shop.detail', $product->slug));
+        }
+
+        $projects = Category::whereIsVisible(true)->get();
+        foreach ($projects as $project) {
+            $siteMap->add(route('shop.category', $project->slug));
+        }
+        $siteMap->add(route('blog'));
+        $blogPosts = Post::where('published_at', '<=', now())->get();
+        foreach ($blogPosts as $post) {
+            $siteMap->add(route('blog.detail', $post->slug));
+        }
+
+        $siteMap->writeToFile(public_path('sitemap.xml'));
+
+        return response()->file(public_path('sitemap.xml'));
     }
 }
