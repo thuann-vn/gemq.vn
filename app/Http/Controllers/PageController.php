@@ -39,8 +39,10 @@ class PageController extends Controller
 
         $blocks = $this->createBlocks($page);
         $pageTitle = $page->title;
+        $isHomePage = $page->code == 'home';
+        $slug = $page->slug;
 
-        return Inertia::render('Page/Show', compact('page', 'blocks', 'pageTitle'));
+        return Inertia::render('Page/Show', compact('page', 'slug', 'blocks', 'pageTitle', 'isHomePage'));
     }
 
     /**

@@ -28,16 +28,6 @@ export default function Header() {
             <header className="bg-white relative border-b border-transparent">
                 <nav aria-label="Top" className="mx-auto container px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between h-24 items-center w-full">
-                        {/*Mobile toggle*/}
-                        <button
-                            type="button"
-                            className="relative rounded-md bg-white p-2 text-gray-400 lg:hidden"
-                            onClick={() => setOpen(true)}
-                        >
-                            <span className="absolute -inset-0.5"/>
-                            <span className="sr-only">Open menu</span>
-                            <Bars3Icon className="h-6 w-6" aria-hidden="true"/>
-                        </button>
 
                         {/* Logo */}
                         <div className="flex lg:ml-0">
@@ -46,8 +36,9 @@ export default function Header() {
 
 
                         {/* Flyout menus */}
-                        <Popover.Group className="hidden lg:block flex-1 px-10">
-                            <div className="flex justify-center items-center space-x-2 bg-white px-2 py-1 uppercase">
+                        <Popover.Group className="hidden lg:block flex-1 px-5">
+                            <div
+                                className="flex justify-center items-center space-x-2 bg-white px-2 py-1 uppercase whitespace-nowrap">
                                 {Object.keys(navigation.items).map((key) => {
                                     var page = navigation.items[key];
                                     if (page.children && Object.keys(page.children).length > 0) {
@@ -74,11 +65,12 @@ export default function Header() {
 
                         {/*Hotline*/}
                         <div className="flex items-center justify-center sm:items-stretch sm:justify-start">
-                            <div className="sm:ml-6">
+                            <div className="sm:ml-4">
                                 <div className="flex space-x-2">
                                     <Link href={"tel:" + general_settings.site_phone}
                                           className="animate-wiggle animate-infinite animate-duration-1000 animate-ease-linear animate-normal flex items-center text-[12px] font-medium  bg-main-600 text-white hover:text-main-700 px-4 py-1 md:py-2 rounded-full">
-                                        <img src={"/images/hotline.png"} className={"me-1 md:me-3 md:w-10 w-6"}/>
+                                        <img src={"/images/hotline.png"} className={"me-1 md:me-3 md:w-10 w-6"}
+                                             alt={"hotline"}/>
                                         <div className="leading-5">
                                             HOTLINE <br/><span
                                             className={"text-[14px] md:text-[16px] font-bold"}>{general_settings.site_phone}</span>
@@ -87,6 +79,18 @@ export default function Header() {
                                 </div>
                             </div>
                         </div>
+
+
+                        {/*Mobile toggle*/}
+                        <button
+                            type="button"
+                            className="relative rounded-md bg-white p-2 text-gray-400 lg:hidden"
+                            onClick={() => setOpen(true)}
+                        >
+                            <span className="absolute -inset-0.5"/>
+                            <span className="sr-only">Open menu</span>
+                            <Bars3Icon className="h-6 w-6" aria-hidden="true"/>
+                        </button>
                     </div>
                 </nav>
             </header>

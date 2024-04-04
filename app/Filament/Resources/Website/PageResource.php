@@ -13,7 +13,6 @@ use Statikbe\FilamentFlexibleContentBlocks\Filament\Form\Fields\AuthorField;
 use Statikbe\FilamentFlexibleContentBlocks\Filament\Form\Fields\CodeField;
 use Statikbe\FilamentFlexibleContentBlocks\Filament\Form\Fields\ContentBlocksField;
 use Statikbe\FilamentFlexibleContentBlocks\Filament\Form\Fields\Groups\SEOFields;
-use Statikbe\FilamentFlexibleContentBlocks\Filament\Form\Fields\IntroField;
 use Statikbe\FilamentFlexibleContentBlocks\Filament\Form\Fields\SlugField;
 use Statikbe\FilamentFlexibleContentBlocks\Filament\Form\Fields\TitleField;
 use Statikbe\FilamentFlexibleContentBlocks\Filament\Table\Actions\PublishAction;
@@ -49,10 +48,9 @@ class PageResource extends Resource
                                 TitleField::create(),
                                 CodeField::create(),
                                 SlugField::create(false),
-                                IntroField::create(),
                                 AuthorField::create(),
                             ]),
-                        Tab::make('Content')
+                        Tab::make('Content Blocks')
                             ->schema([
                                 ContentBlocksField::create()->cloneable(true)
                                     ->label('Content Blocks')

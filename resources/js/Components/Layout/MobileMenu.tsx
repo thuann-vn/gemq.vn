@@ -41,19 +41,20 @@ export default function MobileMenu({open, setOpen, navigation} : {open: boolean,
                                     <XMarkIcon className="h-6 w-6" aria-hidden="true" />
                                 </button>
                             </div>
-                            <div className="space-y-6 border-t border-gray-200 px-4 py-6">
+                            <div className="space-y-6 border-t border-gray-200 px-4 py-6 uppercase">
                                 {Object.keys(navigation.items).map((key) => {
                                     var page = navigation.items[key];
                                     return (
                                         <div key={page.name} className="flow-root">
                                             <a href={page.type == 'route' ? route(page.data.url) : page.data.url}
-                                               className="-m-2 block p-2 font-medium text-gray-900 flex items-center">
+                                               className="-m-2 p-2 font-medium text-gray-900 flex items-center">
                                                 {
                                                     page.data.icon ? (
                                                         <img src={imageStorageUrl(page.data.icon)} alt="" className="h-5 w-5 mr-1" />
                                                     ) :null
                                                 }
-                                                {page.label}
+                                                <span className={"flex-1"}>{page.label}</span>
+
                                             </a>
                                         </div>
                                     )

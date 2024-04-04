@@ -755,3 +755,31 @@
         opacity: 0
     }
 }
+
+.nav-dropdown {
+    li > ul {
+        transform: translatex(100%) scale(0);
+        opacity: 0
+    }
+
+    li:hover > ul {
+        transform: translatex(101%) scale(1);
+        opacity: 1
+    }
+
+    li > a svg {
+        transform: rotate(-90deg)
+    }
+
+    li:hover > a svg {
+        transform: rotate(-270deg)
+    }
+
+    &:hover .group-hover\:scale-100 {
+        transform: scale(1)
+    }
+
+    &:hover .group-hover\:-rotate-180 {
+        transform: rotate(180deg)
+    }
+}
