@@ -1,6 +1,6 @@
 import {Fragment, jsx, jsxs} from "react/jsx-runtime";
 import {useState} from "react";
-import {B as Breadcrumb, S as ShopFilter} from "./Breadcrumb-vlAWALqt.js";
+import {B as Breadcrumb, S as ShopFilter} from "./Breadcrumb-IoDJqHVM.js";
 import {A as AppHead} from "./AppHead-OyzdhV2f.js";
 import {useTranslation} from "react-i18next";
 import {P as ProductCard} from "./ProductCard-nQ--h5D2.js";
@@ -56,6 +56,7 @@ function Category({products}) {
         ]
     });
 }
+
 export {
     Category as default
 };

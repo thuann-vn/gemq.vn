@@ -107,7 +107,7 @@ function Breadcrumb({breadcrumbs}) {
                         "span",
                         {
                             "aria-current": "page",
-                            className: "text-sm font-medium text-main-600 hover:text-main-500",
+                            className: "text-sm font-medium text-gray-600",
                             children: breadcrumb.name
                         }
                     )
@@ -116,6 +116,7 @@ function Breadcrumb({breadcrumbs}) {
         )
     });
 }
+
 export {
     Breadcrumb as B,
     ShopFilter as S

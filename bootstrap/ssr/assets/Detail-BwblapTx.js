@@ -1,7 +1,7 @@
 import {Fragment, jsx, jsxs} from "react/jsx-runtime";
 import {A as AppHead} from "./AppHead-OyzdhV2f.js";
 import {B as BlogCard} from "./BlogCard-_irUPyNf.js";
-import {B as Breadcrumb, S as ShopFilter} from "./Breadcrumb-vlAWALqt.js";
+import {B as Breadcrumb, S as ShopFilter} from "./Breadcrumb-IoDJqHVM.js";
 import {useTranslation} from "react-i18next";
 import {
     FacebookIcon,
@@ -28,7 +28,8 @@ function BlogSingle({post, relatedPosts, content, toc}) {
     const {t} = useTranslation();
     const breadcrumbs = [
         {id: 1, name: "Trang chủ", href: "/"},
-        {id: 2, name: t("Tin tức chuyên ngành")}
+        {id: 2, name: t("Tin tức chuyên ngành"), href: route("blog")},
+        {id: 2, name: post.title}
     ];
     const shareUrl = route("blog.detail", post.slug);
     return /* @__PURE__ */ jsxs(Fragment, {
@@ -168,6 +169,7 @@ function BlogSingle({post, relatedPosts, content, toc}) {
         ]
     });
 }
+
 export {
     BlogSingle as default
 };

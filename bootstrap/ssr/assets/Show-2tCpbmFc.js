@@ -12,7 +12,7 @@ import {forwardRef, useEffect, useImperativeHandle, useRef} from "react";
 import {P as PrimaryButton} from "./PrimaryButton-HW0iU44d.js";
 import {A as Alert} from "./Alert-5wTZXjfY.js";
 import {useTranslation} from "react-i18next";
-import {B as Breadcrumb, S as ShopFilter} from "./Breadcrumb-vlAWALqt.js";
+import {B as Breadcrumb, S as ShopFilter} from "./Breadcrumb-IoDJqHVM.js";
 import {
     FacebookIcon,
     FacebookMessengerIcon,
@@ -705,7 +705,7 @@ function PageSingle({pageTitle, isHomePage, blocks, slug, category}) {
                                                         }
                                                     ),
                                                     /* @__PURE__ */ jsxs("div", {
-                                                        className: "lg:col-span-3", children: [
+                                                        className: "lg:col-span-3 page-content", children: [
                                                             blocks.map((block, index) => /* @__PURE__ */ jsx(PageBlock, {block}, index)),
                                                             /* @__PURE__ */ jsxs("div", {
                                                                 className: "my-10", children: [
@@ -780,7 +780,10 @@ function PageSingle({pageTitle, isHomePage, blocks, slug, category}) {
                         })
                     })
                 ]
-            }) : /* @__PURE__ */ jsx("div", {children: blocks.map((block, index) => /* @__PURE__ */ jsx(PageBlock, {block}, index))})
+            }) : /* @__PURE__ */ jsx("div", {
+                className: "page-content",
+                children: blocks.map((block, index) => /* @__PURE__ */ jsx(PageBlock, {block}, index))
+            })
         ]
     });
 }

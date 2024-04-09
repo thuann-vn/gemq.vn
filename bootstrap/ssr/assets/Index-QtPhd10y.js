@@ -1,7 +1,7 @@
 import {Fragment, jsx, jsxs} from "react/jsx-runtime";
 import {A as AppHead} from "./AppHead-OyzdhV2f.js";
 import {P as Pagination} from "./Pagination-xbXeNdb2.js";
-import {B as Breadcrumb, S as ShopFilter} from "./Breadcrumb-vlAWALqt.js";
+import {B as Breadcrumb, S as ShopFilter} from "./Breadcrumb-IoDJqHVM.js";
 import {useTranslation} from "react-i18next";
 import {B as BlogCard} from "./BlogCard-_irUPyNf.js";
 import "@inertiajs/react";
@@ -43,6 +43,7 @@ function BlogIndex({posts}) {
         ]
     });
 }
+
 export {
     BlogIndex as default
 };

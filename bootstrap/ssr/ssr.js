@@ -625,15 +625,15 @@ createServer(
             "./Pages/Auth/Register.tsx": () => import("./assets/Register-jrDk11Ts.js"),
             "./Pages/Auth/ResetPassword.tsx": () => import("./assets/ResetPassword-jhoyYUGM.js"),
             "./Pages/Auth/VerifyEmail.tsx": () => import("./assets/VerifyEmail-nEZ37MSt.js"),
-            "./Pages/Blog/Detail.tsx": () => import("./assets/Detail-XhCoz-bl.js"),
-            "./Pages/Blog/Index.tsx": () => import("./assets/Index-hbJj2iBf.js"),
+            "./Pages/Blog/Detail.tsx": () => import("./assets/Detail-BwblapTx.js"),
+            "./Pages/Blog/Index.tsx": () => import("./assets/Index-QtPhd10y.js"),
             "./Pages/Checkout/Checkout.tsx": () => import("./assets/Checkout-wyHjlpY9.js"),
             "./Pages/Checkout/OrderSummary.tsx": () => import("./assets/OrderSummary-rIKBvJg9.js"),
             "./Pages/Home.tsx": () => import("./assets/Home-ZHIsxYtD.js"),
-            "./Pages/Page/Show.tsx": () => import("./assets/Show-nldQGsIg.js"),
-            "./Pages/Product/Category.tsx": () => import("./assets/Category-o-yAh35j.js"),
-            "./Pages/Product/Detail.tsx": () => import("./assets/Detail-cmvborL6.js"),
-            "./Pages/Product/Index.tsx": () => import("./assets/Index-TKw5yBgc.js")
+            "./Pages/Page/Show.tsx": () => import("./assets/Show-2tCpbmFc.js"),
+            "./Pages/Product/Category.tsx": () => import("./assets/Category-ghWECmF2.js"),
+            "./Pages/Product/Detail.tsx": () => import("./assets/Detail-mq6VJQxp.js"),
+            "./Pages/Product/Index.tsx": () => import("./assets/Index-uLVrQGWc.js")
         })),
         setup: ({App, props}) => {
             global.route = (name, params, absolute) => A(name, params, absolute, {

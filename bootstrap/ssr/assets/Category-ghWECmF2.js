@@ -1,6 +1,6 @@
 import {Fragment, jsx, jsxs} from "react/jsx-runtime";
 import {useState} from "react";
-import {B as Breadcrumb, S as ShopFilter} from "./Breadcrumb-vlAWALqt.js";
+import {B as Breadcrumb, S as ShopFilter} from "./Breadcrumb-IoDJqHVM.js";
 import {A as AppHead} from "./AppHead-OyzdhV2f.js";
 import {useTranslation} from "react-i18next";
 import {
@@ -27,9 +27,14 @@ import "moment/dist/locale/vi.js";
 function Category({category, content, toc}) {
     useState(false);
     const breadcrumbs = [
-        {id: 1, name: "Trang chủ", href: "/"},
-        {id: 2, name: category.name}
+        {id: 1, name: "Trang chủ", href: "/"}
     ];
+    if (category.parent) {
+        breadcrumbs.push(
+            {id: 2, name: category.parent.name, href: route("shop.category", category.parent.slug)}
+        );
+    }
+    breadcrumbs.push({id: 2, name: category.name, href: ""});
     const {t} = useTranslation();
     const shareUrl = route("shop.category", category.slug);
     return /* @__PURE__ */ jsxs(Fragment, {
@@ -152,6 +157,7 @@ function Category({category, content, toc}) {
         ]
     });
 }
+
 export {
     Category as default
 };
