@@ -116,7 +116,6 @@ function Breadcrumb({breadcrumbs}) {
         )
     });
 }
-
 export {
     Breadcrumb as B,
     ShopFilter as S

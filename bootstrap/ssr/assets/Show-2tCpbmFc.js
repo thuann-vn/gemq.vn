@@ -787,7 +787,6 @@ function PageSingle({pageTitle, isHomePage, blocks, slug, category}) {
         ]
     });
 }
-
 export {
     PageSingle as default
 };

@@ -43,7 +43,6 @@ function BlogIndex({posts}) {
         ]
     });
 }
-
 export {
     BlogIndex as default
 };

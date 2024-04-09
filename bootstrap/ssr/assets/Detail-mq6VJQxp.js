@@ -150,7 +150,6 @@ function Detail({product, allCategories, featuredPosts, content, toc}) {
         ]
     });
 }
-
 export {
     Detail as default
 };

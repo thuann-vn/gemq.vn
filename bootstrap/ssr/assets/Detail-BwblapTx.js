@@ -169,7 +169,6 @@ function BlogSingle({post, relatedPosts, content, toc}) {
         ]
     });
 }
-
 export {
     BlogSingle as default
 };

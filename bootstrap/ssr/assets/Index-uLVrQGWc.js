@@ -56,7 +56,6 @@ function Category({products}) {
         ]
     });
 }
-
 export {
     Category as default
 };

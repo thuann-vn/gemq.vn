@@ -157,7 +157,6 @@ function Category({category, content, toc}) {
         ]
     });
 }
-
 export {
     Category as default
 };
