@@ -1,4 +1,4 @@
-import {jsxs, jsx} from "react/jsx-runtime";
+import {jsx, jsxs} from "react/jsx-runtime";
 
 function Alert({title, message}) {
     return /* @__PURE__ */ jsxs("div", {
@@ -27,7 +27,6 @@ function Alert({title, message}) {
         ]
     });
 }
-
 export {
     Alert as A
 };

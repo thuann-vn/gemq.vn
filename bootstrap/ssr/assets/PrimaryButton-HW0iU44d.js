@@ -1,4 +1,4 @@
-import {jsxs, jsx} from "react/jsx-runtime";
+import {jsx, jsxs} from "react/jsx-runtime";
 
 function PrimaryButton({className = "", disabled, loading, children, ...props}) {
     return /* @__PURE__ */ jsxs(
@@ -34,7 +34,6 @@ function PrimaryButton({className = "", disabled, loading, children, ...props}) 
         }
     );
 }
-
 export {
     PrimaryButton as P
 };

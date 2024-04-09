@@ -17,7 +17,6 @@ function CustomCurrencyFormat({value}) {
         }
     );
 }
-
 export {
     CustomCurrencyFormat as C
 };

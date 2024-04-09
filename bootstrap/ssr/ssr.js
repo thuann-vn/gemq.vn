@@ -13,7 +13,6 @@ async function resolvePageComponent(path, pages) {
     }
     throw new Error(`Page not found: ${path}`);
 }
-
 function t(t4, r2) {
     for (var e2 = 0; e2 < r2.length; e2++) {
         var n2 = r2[e2];
@@ -32,11 +31,9 @@ function t(t4, r2) {
     }
     var o2;
 }
-
 function r(r2, e2, n2) {
     return e2 && t(r2.prototype, e2), n2 && t(r2, n2), Object.defineProperty(r2, "prototype", {writable: false}), r2;
 }
-
 function e() {
     return e = Object.assign ? Object.assign.bind() : function (t4) {
         for (var r2 = 1; r2 < arguments.length; r2++) {
@@ -47,19 +44,16 @@ function e() {
         return t4;
     }, e.apply(this, arguments);
 }
-
 function n(t4) {
     return n = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function (t5) {
         return t5.__proto__ || Object.getPrototypeOf(t5);
     }, n(t4);
 }
-
 function o(t4, r2) {
     return o = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function (t5, r3) {
         return t5.__proto__ = r3, t5;
     }, o(t4, r2);
 }
-
 function i(t4, r2, e2) {
     return i = function () {
         if ("undefined" == typeof Reflect || !Reflect.construct)
@@ -81,7 +75,6 @@ function i(t4, r2, e2) {
         return e3 && o(i2, e3.prototype), i2;
     }, i.apply(null, arguments);
 }
-
 function u(t4) {
     var r2 = "function" == typeof Map ? /* @__PURE__ */ new Map() : void 0;
     return u = function (t5) {
@@ -597,7 +590,6 @@ var f = String.prototype.replace, a = /%20/g, c = "RFC3986", l = {
         }
     }]), u2;
 }(/* @__PURE__ */ u(String));
-
 function A(t4, r2, e2, n2) {
     var o2 = new P(t4, r2, e2, n2);
     return t4 ? o2.toString() : o2;
@@ -638,7 +630,7 @@ createServer(
             "./Pages/Checkout/Checkout.tsx": () => import("./assets/Checkout-wyHjlpY9.js"),
             "./Pages/Checkout/OrderSummary.tsx": () => import("./assets/OrderSummary-rIKBvJg9.js"),
             "./Pages/Home.tsx": () => import("./assets/Home-ZHIsxYtD.js"),
-            "./Pages/Page/Show.tsx": () => import("./assets/Show-jQ-fBtjA.js"),
+            "./Pages/Page/Show.tsx": () => import("./assets/Show-nldQGsIg.js"),
             "./Pages/Product/Category.tsx": () => import("./assets/Category-o-yAh35j.js"),
             "./Pages/Product/Detail.tsx": () => import("./assets/Detail-cmvborL6.js"),
             "./Pages/Product/Index.tsx": () => import("./assets/Index-TKw5yBgc.js")

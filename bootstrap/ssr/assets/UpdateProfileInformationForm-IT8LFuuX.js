@@ -1,9 +1,9 @@
-import {jsxs, jsx} from "react/jsx-runtime";
+import {jsx, jsxs} from "react/jsx-runtime";
 import {I as InputError} from "./InputError-NzwfGsTp.js";
 import {I as InputLabel} from "./InputLabel-Febp5y5Y.js";
 import {P as PrimaryButton} from "./PrimaryButton-HW0iU44d.js";
 import {T as TextInput} from "./TextInput-4P_gfX6y.js";
-import {usePage, useForm, Link} from "@inertiajs/react";
+import {Link, useForm, usePage} from "@inertiajs/react";
 import {Transition} from "@headlessui/react";
 import "react";
 import "./Helper-fobfuv7J.js";
@@ -123,7 +123,6 @@ function UpdateProfileInformation({mustVerifyEmail, status, className = ""}) {
         ]
     });
 }
-
 export {
     UpdateProfileInformation as default
 };

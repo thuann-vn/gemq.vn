@@ -68,7 +68,6 @@ function Pagination({data}) {
         })
     });
 }
-
 export {
     Pagination as P
 };

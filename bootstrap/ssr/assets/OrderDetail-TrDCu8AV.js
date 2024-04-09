@@ -1,4 +1,4 @@
-import {jsxs, Fragment, jsx} from "react/jsx-runtime";
+import {Fragment, jsx, jsxs} from "react/jsx-runtime";
 import {Link} from "@inertiajs/react";
 import {A as AccountNav} from "./AccountNav-Lmh_tk3u.js";
 import {ArrowLeftIcon} from "@heroicons/react/24/solid";
@@ -281,7 +281,6 @@ function OrderDetail({order}) {
         ]
     });
 }
-
 export {
     OrderDetail as default
 };

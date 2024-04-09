@@ -1,4 +1,4 @@
-import {jsxs, Fragment, jsx} from "react/jsx-runtime";
+import {Fragment, jsx, jsxs} from "react/jsx-runtime";
 import {Head, Link} from "@inertiajs/react";
 import {C as CheckoutSteps} from "./CheckoutSteps-GerrVTFw.js";
 import {C as CustomCurrencyFormat} from "./CurrencyFormat-NUeB0jkB.js";
@@ -278,7 +278,6 @@ function OrderSummary({order}) {
         ]
     });
 }
-
 export {
     OrderSummary as default
 };

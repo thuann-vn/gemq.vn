@@ -1,6 +1,6 @@
-import {jsxs, Fragment, jsx} from "react/jsx-runtime";
+import {Fragment, jsx, jsxs} from "react/jsx-runtime";
 import {P as PrimaryButton} from "./PrimaryButton-HW0iU44d.js";
-import {useForm, Head, Link} from "@inertiajs/react";
+import {Head, Link, useForm} from "@inertiajs/react";
 
 function VerifyEmail({status}) {
     const {post, processing} = useForm({});
@@ -54,7 +54,6 @@ function VerifyEmail({status}) {
         ]
     });
 }
-
 export {
     VerifyEmail as default
 };

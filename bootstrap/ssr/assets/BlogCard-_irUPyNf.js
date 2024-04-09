@@ -1,5 +1,5 @@
-import {jsxs, jsx} from "react/jsx-runtime";
-import {i as imageStorageUrl, f as formatDate} from "./Helper-fobfuv7J.js";
+import {jsx, jsxs} from "react/jsx-runtime";
+import {f as formatDate, i as imageStorageUrl} from "./Helper-fobfuv7J.js";
 import {Link} from "@inertiajs/react";
 
 function BlogCard({post}) {
@@ -42,7 +42,6 @@ function BlogCard({post}) {
         ]
     }, post.id);
 }
-
 export {
     BlogCard as B
 };

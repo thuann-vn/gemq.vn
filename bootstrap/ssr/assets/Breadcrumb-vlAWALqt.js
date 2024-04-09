@@ -1,5 +1,5 @@
-import {jsxs, jsx} from "react/jsx-runtime";
-import {usePage, Link} from "@inertiajs/react";
+import {jsx, jsxs} from "react/jsx-runtime";
+import {Link, usePage} from "@inertiajs/react";
 import {c as classNames, i as imageStorageUrl} from "./Helper-fobfuv7J.js";
 import {useTranslation} from "react-i18next";
 
@@ -116,7 +116,6 @@ function Breadcrumb({breadcrumbs}) {
         )
     });
 }
-
 export {
     Breadcrumb as B,
     ShopFilter as S

@@ -1,4 +1,4 @@
-import {jsxs, Fragment, jsx} from "react/jsx-runtime";
+import {Fragment, jsx, jsxs} from "react/jsx-runtime";
 import {useState} from "react";
 import {B as Breadcrumb, S as ShopFilter} from "./Breadcrumb-vlAWALqt.js";
 import {A as AppHead} from "./AppHead-OyzdhV2f.js";
@@ -56,7 +56,6 @@ function Category({products}) {
         ]
     });
 }
-
 export {
     Category as default
 };

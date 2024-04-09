@@ -7,7 +7,6 @@ function InputLabel({value, className = "", children, ...props}) {
         children: value ? value : children
     });
 }
-
 export {
     InputLabel as I
 };

@@ -1,4 +1,4 @@
-import {jsxs, Fragment, jsx} from "react/jsx-runtime";
+import {Fragment, jsx, jsxs} from "react/jsx-runtime";
 import {A as AccountNav} from "./AccountNav-Lmh_tk3u.js";
 import {A as AppHead} from "./AppHead-OyzdhV2f.js";
 import "./Helper-fobfuv7J.js";
@@ -27,7 +27,6 @@ function Dashboard({}) {
         ]
     });
 }
-
 export {
     Dashboard as default
 };

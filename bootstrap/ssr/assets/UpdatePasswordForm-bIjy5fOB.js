@@ -1,4 +1,4 @@
-import {jsxs, jsx} from "react/jsx-runtime";
+import {jsx, jsxs} from "react/jsx-runtime";
 import {useRef} from "react";
 import {I as InputError} from "./InputError-NzwfGsTp.js";
 import {I as InputLabel} from "./InputLabel-Febp5y5Y.js";
@@ -136,7 +136,6 @@ function UpdatePasswordForm({className = ""}) {
         ]
     });
 }
-
 export {
     UpdatePasswordForm as default
 };

@@ -1,8 +1,8 @@
-import {jsxs, Fragment, jsx} from "react/jsx-runtime";
+import {Fragment, jsx, jsxs} from "react/jsx-runtime";
 import {Head, Link, router} from "@inertiajs/react";
 import {C as CustomCurrencyFormat} from "./CurrencyFormat-NUeB0jkB.js";
 import * as React from "react";
-import {useState, useEffect, Fragment as Fragment$1} from "react";
+import {Fragment as Fragment$1, useEffect, useState} from "react";
 import {Combobox, Transition} from "@headlessui/react";
 import {ChevronUpDownIcon} from "@heroicons/react/20/solid";
 import {c as classNames, i as imageStorageUrl} from "./Helper-fobfuv7J.js";
@@ -746,7 +746,6 @@ function Checkout({items, subtotal, total, tax, shippingMethods, paymentMethods}
         ]
     });
 }
-
 export {
     Checkout as default
 };

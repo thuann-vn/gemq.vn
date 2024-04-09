@@ -1,12 +1,12 @@
-import {jsxs, jsx, Fragment as Fragment$1} from "react/jsx-runtime";
+import {Fragment as Fragment$1, jsx, jsxs} from "react/jsx-runtime";
 import {A as AccountNav} from "./AccountNav-Lmh_tk3u.js";
-import {f as formatDate, c as classNames} from "./Helper-fobfuv7J.js";
+import {c as classNames, f as formatDate} from "./Helper-fobfuv7J.js";
 import {Link, router} from "@inertiajs/react";
-import {useContext, Fragment} from "react";
+import {Fragment, useContext} from "react";
 import axios from "axios";
 import {C as CartContext} from "./CartContext-OwhgCTII.js";
 import {Menu, Transition} from "@headlessui/react";
-import {EllipsisVerticalIcon, ClockIcon} from "@heroicons/react/24/outline";
+import {ClockIcon, EllipsisVerticalIcon} from "@heroicons/react/24/outline";
 import {CheckCircleIcon} from "@heroicons/react/24/solid";
 import {C as CustomCurrencyFormat} from "./CurrencyFormat-NUeB0jkB.js";
 import {P as Pagination} from "./Pagination-xbXeNdb2.js";
@@ -411,7 +411,6 @@ function Orders({orders}) {
         ]
     });
 }
-
 export {
     Orders as default
 };

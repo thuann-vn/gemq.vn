@@ -1,6 +1,6 @@
-import {jsx, Fragment, jsxs} from "react/jsx-runtime";
+import {Fragment, jsx, jsxs} from "react/jsx-runtime";
 import {Swiper, SwiperSlide} from "swiper/react";
-import {Navigation, Pagination, Parallax, Autoplay} from "swiper/modules";
+import {Autoplay, Navigation, Pagination, Parallax} from "swiper/modules";
 import {c as classNames, i as imageStorageUrl} from "./Helper-fobfuv7J.js";
 import {Link} from "@inertiajs/react";
 import {A as AppHead} from "./AppHead-OyzdhV2f.js";
@@ -133,7 +133,6 @@ function Home({homeSlider, homeSaleSlider1, homeSaleSlider2, collections, homePo
         ]
     });
 }
-
 export {
     Home as default
 };

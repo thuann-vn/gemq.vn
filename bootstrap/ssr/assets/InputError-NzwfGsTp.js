@@ -7,7 +7,6 @@ function InputError({message, className = "", ...props}) {
         children: message
     }) : null;
 }
-
 export {
     InputError as I
 };

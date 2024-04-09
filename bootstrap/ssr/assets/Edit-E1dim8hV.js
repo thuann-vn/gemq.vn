@@ -1,4 +1,4 @@
-import {jsxs, Fragment, jsx} from "react/jsx-runtime";
+import {Fragment, jsx, jsxs} from "react/jsx-runtime";
 import DeleteUserForm from "./DeleteUserForm-xYX3UAmg.js";
 import UpdatePasswordForm from "./UpdatePasswordForm-bIjy5fOB.js";
 import UpdateProfileInformation from "./UpdateProfileInformationForm-IT8LFuuX.js";
@@ -48,7 +48,6 @@ function Edit({auth, mustVerifyEmail, status}) {
         ]
     });
 }
-
 export {
     Edit as default
 };

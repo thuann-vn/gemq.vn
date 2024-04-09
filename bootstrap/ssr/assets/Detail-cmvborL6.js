@@ -1,23 +1,23 @@
-import {jsxs, Fragment, jsx} from "react/jsx-runtime";
+import {Fragment, jsx, jsxs} from "react/jsx-runtime";
 import {useState} from "react";
 import {B as Breadcrumb, S as ShopFilter} from "./Breadcrumb-vlAWALqt.js";
 import {A as AppHead} from "./AppHead-OyzdhV2f.js";
 import {useTranslation} from "react-i18next";
 import {
-    FacebookShareButton,
     FacebookIcon,
-    LinkedinShareButton,
-    LinkedinIcon,
-    FacebookMessengerShareButton,
     FacebookMessengerIcon,
-    TelegramShareButton,
+    FacebookMessengerShareButton,
+    FacebookShareButton,
+    LinkedinIcon,
+    LinkedinShareButton,
     TelegramIcon,
-    TwitterShareButton,
+    TelegramShareButton,
     TwitterIcon,
-    ViberShareButton,
+    TwitterShareButton,
     ViberIcon,
-    WhatsappShareButton,
-    WhatsappIcon
+    ViberShareButton,
+    WhatsappIcon,
+    WhatsappShareButton
 } from "react-share";
 import "@inertiajs/react";
 import "./Helper-fobfuv7J.js";
@@ -150,7 +150,6 @@ function Detail({product, allCategories, featuredPosts, content, toc}) {
         ]
     });
 }
-
 export {
     Detail as default
 };

@@ -1,6 +1,6 @@
 import {jsx, jsxs} from "react/jsx-runtime";
 import {useContext} from "react";
-import {usePage, Link} from "@inertiajs/react";
+import {Link, usePage} from "@inertiajs/react";
 import {C as CartContext} from "./CartContext-OwhgCTII.js";
 import {c as classNames} from "./Helper-fobfuv7J.js";
 
@@ -58,7 +58,6 @@ function ProductCard({
         })
     });
 }
-
 export {
     ProductCard as P
 };

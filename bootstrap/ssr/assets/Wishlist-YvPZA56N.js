@@ -1,6 +1,6 @@
-import {jsxs, jsx, Fragment} from "react/jsx-runtime";
+import {Fragment, jsx, jsxs} from "react/jsx-runtime";
 import {A as AccountNav} from "./AccountNav-Lmh_tk3u.js";
-import {useState, useEffect} from "react";
+import {useEffect, useState} from "react";
 import {P as ProductCard} from "./ProductCard-nQ--h5D2.js";
 import {P as Pagination} from "./Pagination-xbXeNdb2.js";
 import {Link} from "@inertiajs/react";
@@ -88,7 +88,6 @@ function Dashboard({myWishList}) {
         ]
     });
 }
-
 export {
     Dashboard as default
 };

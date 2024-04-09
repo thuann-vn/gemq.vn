@@ -1,10 +1,10 @@
-import {jsxs, Fragment, jsx} from "react/jsx-runtime";
+import {Fragment, jsx, jsxs} from "react/jsx-runtime";
 import {useEffect} from "react";
 import {I as InputError} from "./InputError-NzwfGsTp.js";
 import {I as InputLabel} from "./InputLabel-Febp5y5Y.js";
 import {P as PrimaryButton} from "./PrimaryButton-HW0iU44d.js";
 import {T as TextInput} from "./TextInput-4P_gfX6y.js";
-import {useForm, Head} from "@inertiajs/react";
+import {Head, useForm} from "@inertiajs/react";
 import "./Helper-fobfuv7J.js";
 import "moment";
 import "moment/dist/locale/vi.js";
@@ -119,7 +119,6 @@ function ResetPassword({token, email}) {
         ]
     });
 }
-
 export {
     ResetPassword as default
 };
