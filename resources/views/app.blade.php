@@ -9,8 +9,11 @@
         {!! OpenGraph::generate() !!}
         {!! Twitter::generate() !!}
 
-        @if(!empty($seoSchema) || !empty(getGeneralSettings('custom_js')))
-            {!! $seoSchema ?? getGeneralSettings('custom_js') !!}
+        @if(!empty(getGeneralSettings('custom_js')))
+            {!! getGeneralSettings('custom_js') !!}
+        @endif
+        @if(!empty($seoSchema))
+            {!! $seoSchema !!}
         @endif
 
         <!-- Scripts -->
