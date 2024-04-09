@@ -4,7 +4,7 @@ import {Combobox} from "@headlessui/react";
 import debounce from 'lodash.debounce'
 import axios from "axios";
 import CustomCurrencyFormat from "@/Components/CurrencyFormat";
-import {Link, router} from "@inertiajs/react";
+import {router} from "@inertiajs/react";
 import {Product} from "@/types";
 
 export default function SearchForm() {
@@ -31,14 +31,15 @@ export default function SearchForm() {
         router.visit(route('products.detail', {slug: product.slug}))
     }
     return (
-        <form className="flex-1 lg:w-0 ms-8" action="#" method="GET">
-            <div className="relative w-full text-gray-400 focus-within:text-gray-600">
+        <form className="ms-8" action="#" method="GET">
+            <div
+                className="relative w-full border border-gray-300 rounded-full text-gray-400 focus-within:text-gray-600">
                 <label htmlFor="search" className="sr-only">Search</label>
                 <Combobox value={selectedProduct}
                           onChange={onSelectProduct}>
                     <Combobox.Input id="search" name="search"
                                     className="block w-full bg-white py-3 pr-10 pl-3 border border-transparent rounded-full leading-5 text-gray-900 placeholder-gray-500 focus:outline-none focus:bg-white focus:border-transparent focus:ring-0 sm:text-sm"
-                                    placeholder="Search for your products..."
+                                    placeholder="Tìm kiếm..."
                                     type="search"
                                     onChange={(event) => setQuery(event.target.value)}
                     />
@@ -47,7 +48,7 @@ export default function SearchForm() {
                         {
                             dropdownOptions.length === 0 ? (
                                 <div className="px-4 py-2 text-sm text-gray-700">
-                                    {query !== '' ? 'No results found' : 'Start typing to search'}
+                                    {query !== '' ? 'Không có kết quả nào!' : 'Nhập từ khóa để tìm kiếm'}
                                 </div>
                             ) : null
                         }

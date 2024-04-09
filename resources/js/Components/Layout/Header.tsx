@@ -9,6 +9,7 @@ import {PageProps} from "@/types";
 import ApplicationLogo from "@/Components/Layout/ApplicationLogo";
 import NavLink from "@/Components/Layout/NavLink";
 import NavDropdown from "@/Components/Layout/NavDropdown";
+import SearchForm from "@/Components/Layout/SearchForm";
 
 export default function Header() {
     const [open, setOpen] = useState(false)
@@ -62,6 +63,11 @@ export default function Header() {
                                 })}
                             </div>
                         </Popover.Group>
+
+                        {/*Search form*/}
+                        <div className={"hidden md:block"}>
+                            <SearchForm/>
+                        </div>
 
                         {/*Hotline*/}
                         <div className="flex items-center justify-center sm:items-stretch sm:justify-start">
