@@ -22,7 +22,7 @@ export default function Layout({ children }: PropsWithChildren<{  }>) {
         <div className="min-h-screen">
             <CartProvider>
                 <Header />
-                <main>{children}</main>
+                <main className={"pt-[97px]"}>{children}</main>
                 <CartModal/>
                 <Footer/>
                 <CallNow/>

@@ -105,7 +105,7 @@ export default () => {
                                                 index == 2 ? (
                                                     <div className={"mt-6"}>
                                                         <h3 className="text-lg text-white font-semibold tracking-wider uppercase mt-6 mb-3">{t('Theo dõi chúng tôi tại')}</h3>
-                                                        <div className="flex space-x-6 md:order-2 mt-3">
+                                                        <div className="flex items-center space-x-6 md:order-2 mt-3">
                                                             {navigation.social.map((item) => (
                                                                 <a key={item.name} href={item.href} target="_blank"
                                                                    className="text-white hover:text-white">
@@ -113,6 +113,9 @@ export default () => {
                                                                     <item.icon className="h-6 w-6" aria-hidden="true"/>
                                                                 </a>
                                                             ))}
+
+                                                            <img src={"/images/dmca.png"} alt={"dmca"}
+                                                                 className="h-12"/>
                                                         </div>
 
 

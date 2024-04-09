@@ -21,7 +21,7 @@ export default function Header() {
 
 
     return (
-        <div className="bg-white relative z-20">
+        <div className="bg-white fixed left-0 top-0 w-full z-20">
             {/* Mobile menu */}
             <MobileMenu open={open} setOpen={setOpen} navigation={navigation}/>
 

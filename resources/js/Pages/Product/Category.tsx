@@ -30,8 +30,13 @@ export default function Category({category, content, toc}: {
     const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
     const breadcrumbs = [
         {id: 1, name: 'Trang chủ', href: '/'},
-        {id: 2, name: category.name},
     ]
+    if (category.parent) {
+        breadcrumbs.push(
+            {id: 2, name: category.parent.name, href: route('shop.category', category.parent.slug)}
+        )
+    }
+    breadcrumbs.push({id: 2, name: category.name, href: ''})
     const {t} = useTranslation()
     const shareUrl = route('shop.category', category.slug)
     return (

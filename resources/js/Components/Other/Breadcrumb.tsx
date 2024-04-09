@@ -28,7 +28,7 @@ export default function Breadcrumb({breadcrumbs}: { breadcrumbs: any[] }) {
                                 </div>
                             ) : (
                                 <span aria-current="page"
-                                      className="text-sm font-medium text-main-600 hover:text-main-500">
+                                      className="text-sm font-medium text-gray-600">
                                     {breadcrumb.name}
                                 </span>
                             )

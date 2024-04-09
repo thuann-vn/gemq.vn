@@ -30,7 +30,8 @@ export default function BlogSingle({post, relatedPosts, content, toc}: PageProps
     const {t} = useTranslation()
     const breadcrumbs = [
         {id: 1, name: 'Trang chủ', href: '/'},
-        {id: 2, name: t('Tin tức chuyên ngành')},
+        {id: 2, name: t('Tin tức chuyên ngành'), href: route('blog')},
+        {id: 2, name: post.title},
     ]
     const shareUrl = route('blog.detail', post.slug)
     return (

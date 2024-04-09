@@ -34,7 +34,7 @@ class ProductController extends Controller
         $slug = $request->slug;
         $category = null;
         if (!empty($slug)) {
-            $category = Category::where('slug', $slug)->first();
+            $category = Category::with(['parent'])->where('slug', $slug)->first();
         }
 
         $markupFixer = new MarkupFixer();
@@ -52,6 +52,7 @@ class ProductController extends Controller
         SEOMeta::setTitle($category->seo_title ?? $category->name ?? getGeneralSettings('site_name'));
         SEOMeta::setKeywords($category->seo_description);
         SEOTools::addImages($category->image);
+        \View::share('seoSchema', $category->seo_schema ?? '');
 
         return Inertia::render('Product/Category', compact('category', 'content', 'toc'));
     }
@@ -80,6 +81,7 @@ class ProductController extends Controller
         SEOMeta::setTitle($product->seo_title ?? $product->name ?? getGeneralSettings('site_name'));
         SEOMeta::setKeywords($product->seo_description);
         SEOTools::addImages($product->featured_image_url);
+        \View::share('seoSchema', $product->seo_schema ?? '');
 
         return Inertia::render('Product/Detail', compact('product', 'images', 'relatedProducts', 'firstCategory', 'content', 'toc'));
     }

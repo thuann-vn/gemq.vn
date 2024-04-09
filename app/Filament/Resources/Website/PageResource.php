@@ -12,7 +12,6 @@ use Filament\Tables;
 use Statikbe\FilamentFlexibleContentBlocks\Filament\Form\Fields\AuthorField;
 use Statikbe\FilamentFlexibleContentBlocks\Filament\Form\Fields\CodeField;
 use Statikbe\FilamentFlexibleContentBlocks\Filament\Form\Fields\ContentBlocksField;
-use Statikbe\FilamentFlexibleContentBlocks\Filament\Form\Fields\Groups\SEOFields;
 use Statikbe\FilamentFlexibleContentBlocks\Filament\Form\Fields\SlugField;
 use Statikbe\FilamentFlexibleContentBlocks\Filament\Form\Fields\TitleField;
 use Statikbe\FilamentFlexibleContentBlocks\Filament\Table\Actions\PublishAction;
@@ -58,7 +57,7 @@ class PageResource extends Resource
                             ]),
                         Tab::make('SEO')
                             ->schema([
-                                SEOFields::create(1, true),
+                                \App\Filament\Form\Fields\SEOFields::create()
                             ]),
                     ]),
 

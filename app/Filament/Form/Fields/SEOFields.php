@@ -6,6 +6,7 @@ use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Group;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
+use Wiebenieuwenhuis\FilamentCodeEditor\Components\CodeEditor;
 
 class SEOFields extends Group
 {
@@ -23,6 +24,8 @@ class SEOFields extends Group
                     TextInput::make('seo_keywords')
                         ->label('SEO Keywords')
                         ->maxLength(255),
+                    CodeEditor::make('seo_schema')
+                        ->label('SEO Schema'),
                 ])->columns(1),
         ]);
     }

@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use Gloudemans\Shoppingcart\Facades\Cart;
+use Artesaos\SEOTools\Facades\SEOMeta;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\URL;
@@ -33,5 +33,7 @@ class AppServiceProvider extends ServiceProvider
             URL::forceScheme('https');
         }
         JsonResource::withoutWrapping();
+
+        SEOMeta::setCanonical(config('app.url'));
     }
 }

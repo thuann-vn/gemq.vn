@@ -41,7 +41,7 @@ class PageController extends Controller
         $pageTitle = $page->title;
         $isHomePage = $page->code == 'home';
         $slug = $page->slug;
-
+        \View::share('seoSchema', $page->seo_schema ?? '');
         return Inertia::render('Page/Show', compact('page', 'slug', 'blocks', 'pageTitle', 'isHomePage'));
     }
 

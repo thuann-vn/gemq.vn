@@ -60,7 +60,7 @@ export default function PageSingle({pageTitle, isHomePage, blocks, slug, categor
                                             />
 
                                             {/* Product grid */}
-                                            <div className="lg:col-span-3">
+                                            <div className="lg:col-span-3 page-content">
                                                 {
                                                     blocks.map((block, index) => (
                                                         <PageBlock block={block} key={index}/>
@@ -100,7 +100,7 @@ export default function PageSingle({pageTitle, isHomePage, blocks, slug, categor
                         </div>
                     </>
                 ) : (
-                    <div>
+                    <div className={"page-content"}>
                         {
                             blocks.map((block, index) => (
                                 <PageBlock block={block} key={index}/>

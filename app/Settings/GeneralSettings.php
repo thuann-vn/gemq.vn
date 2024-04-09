@@ -30,6 +30,8 @@ class GeneralSettings extends Settings
     public ?string $company_name;
     public ?string $company_description;
 
+    public ?string $custom_js;
+
     public static function group(): string
     {
         return 'general';

@@ -220,6 +220,7 @@ export interface ProductCategory{
     image: string;
     created_at: string;
     updated_at: string;
+    parent?: ProductCategory;
 }
 
 export interface Brand {

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\PostResource;
 use App\Models\Blog\Post;
 use Artesaos\SEOTools\Facades\SEOMeta;
 use Artesaos\SEOTools\Facades\SEOTools;
@@ -44,6 +43,7 @@ class BlogController extends Controller
         SEOMeta::setTitle($post->seo_title ?? $post->title ?? getGeneralSettings('site_name'));
         SEOMeta::setKeywords($post->seo_keywords ?? '');
         SEOTools::addImages($post->image);
+        \View::share('seoSchema', $post->seo_schema ?? '');
 
         return Inertia::render('Blog/Detail', compact('post', 'relatedPosts', 'content', 'toc'));
     }

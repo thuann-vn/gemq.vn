@@ -5,8 +5,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noindex">
         <link rel="icon" href="{{getGeneralSettings('site_favicon')}}">
-        {!! SEO::generate() !!}
+        {!! SEOMeta::generate() !!}
         {!! OpenGraph::generate() !!}
+        {!! Twitter::generate() !!}
+
+        @if(!empty($seoSchema) || !empty(getGeneralSettings('custom_js')))
+            {!! $seoSchema ?? getGeneralSettings('custom_js') !!}
+        @endif
 
         <!-- Scripts -->
         @routes

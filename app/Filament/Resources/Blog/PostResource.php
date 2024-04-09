@@ -47,12 +47,10 @@ class PostResource extends Resource
                                     ->maxLength(255)
                                     ->afterStateUpdated(fn(string $operation, $state, Forms\Set $set) => $operation === 'create' ? $set('slug', Str::slug($state)) : null),
                                 Forms\Components\TextInput::make('slug')
-                                    ->disabled()
                                     ->dehydrated()
                                     ->required()
                                     ->maxLength(255)
                                     ->unique(Post::class, 'slug', ignoreRecord: true),
-
                                 TinyEditor::make('content')
                                     ->required()
                                     ->columnSpan('full'),

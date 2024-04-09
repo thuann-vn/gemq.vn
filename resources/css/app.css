@@ -191,9 +191,13 @@
 }
 
 .page-content{
+    a {
+        color: #d19e00;
+    }
     p {
         margin-bottom: 10px;
         line-height: 24px;
+        text-align: justify;
     }
 
     h1{
@@ -781,5 +785,30 @@
 
     &:hover .group-hover\:-rotate-180 {
         transform: rotate(180deg)
+    }
+}
+
+.page-toc {
+    max-width: 500px;
+
+    ul {
+        counter-reset: item;
+
+        > li {
+            list-style: decimal;
+            counter-increment: item;
+
+            > ul {
+                margin-left: 20px;
+
+                li {
+                    list-style: none;
+
+                    &:before {
+                        content: counters(item, ".") " ";
+                    }
+                }
+            }
+        }
     }
 }
